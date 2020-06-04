@@ -1,0 +1,56 @@
+\useoutertheme[height=0pt,width=0pt,right, font=1]{sidebar}
+
+\usetheme[framenumber]{AP}  % Standard AP style
+% \usetheme[framenumber,APUA]{AP}       % AP style + University of Antwerp logo (for joint presentations)
+
+% Packages:
+% \usepackage{import}
+\usepackage[T1]{fontenc} %  oriented to output, encoding of fonts to use for printing characters
+\usepackage[utf8]{inputenc} % oriented to input accented characters directly from the keyboard
+\usepackage[portuguese]{babel} % to use English as main language;
+\usepackage{cite} % for improved handling of numeric citations. 
+\usepackage{epsf,epsfig,psfig} % to insert '.eps', ' .ps' postscript figures
+\usepackage{fancyhdr} % to get better control over headers
+\usepackage{setspace} % to specify line spacing for sections and paragraphs through built-in commands 
+\usepackage{float} % to float figures and tables
+\usepackage{makeidx} % to organize indexing
+\usepackage{amsmath,amssymb,bm,amsbsy} % to use a plethora of mathematical AMS fonts
+\usepackage{mathtools} % extension to package 'amsfonts' for bug correction and mathematical typesetting
+\usepackage{lipsum} % dummy text
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+\usepackage{relsize}
+\usetikzlibrary{shapes,arrows,arrows.meta,matrix}
+
+
+% The title information
+\title[]{Simulação Numérica em Elementos Finitos do Escoamento em Artéria Coronária}
+\subtitle{}
+\author{\vspace{0.5cm} Leandro Marques\\
+        Orientadores: Gustavo Anjos e José Pontes}
+
+\institute{\bigskip Universidade do Estado do Rio de Janeiro}
+\date{10 de Setembro de 2018}
+
+% What is this for? (used when including existing pdf slides?)
+\setbeamercolor{background canvas}{bg=}
+
+% Remove the navigation symbols
+\beamertemplatenavigationsymbolsempty 
+
+% Show/repeat the outline page between each section/subsection
+\AtBeginSection[]  
+  {  
+    \begin{frame}<*>{beamer} 
+      \frametitle{Outline}
+      \tableofcontents[currentsection,currentsubsection]  
+    \end{frame}  
+  }
+
+\AtBeginSubsection[]
+{
+  \begin{frame}<*>{beamer} 
+    \frametitle{Outline}
+    \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+}
