@@ -83,21 +83,42 @@ Aims:
 \begin{column}{0.6\textwidth}
 \hspace{0.5cm}  5. Constant Mass Difusivity\\[0.1cm]
 \hspace{0.5cm}  6. Single-phase Flow\\[0.1cm]
-\hspace{0.5cm}  7. Two-dimensional flow
+\hspace{0.5cm}  7. Axisymmetric flow
 \end{column}
 \end{columns}
 \end{center}
 \small
 \vspace{0.5cm}
 \begin{equation*}
- \frac{\partial \omega}{\partial t} + \textbf{v} \cdot \nabla \omega = \frac{1}{Re} \nabla^{2} \omega
- \hspace{1.2cm}
- \nabla^{2} \psi = - \omega
+\frac{D \omega_{\theta}}{D t}
+	= 
+	\frac{\omega_{\theta} v_r}{r}
+	+
+	\frac{1}{Re}
+	\bigg[
+	\frac{1}{r}\frac{\partial}{\partial r} r 
+	\frac{\partial {\omega_{\theta}}}{\partial r}
+	+
+	\frac{\partial^2 \omega_{\theta}}{\partial z^2}
+	-
+	\frac{\omega_{\theta}}{r^2}
+	\bigg]
 \end{equation*}
-\vspace{0.2cm}
+\begin{equation*} 
+	\frac{1}{r}\frac{\partial}{\partial r} r 
+	\frac{\partial {\psi}}{\partial r}
+	+
+	\frac{\partial^2 \psi}{\partial z^2}
+	-
+	\frac{2}{r}\frac{\partial \psi}{\partial r}
+	=
+	-r \omega_{\theta}
+\end{equation*}
 \begin{equation*}
  \frac{\partial c}{\partial t} + \textbf{v} \cdot \nabla c = \frac{1}{ReSc} \nabla^{2} c
- \hspace{1.2cm}
+\end{equation*}
+
+\begin{equation*}
  \textbf{v} = \textbf{D} \psi
 \end{equation*}\\[0.8cm]
 
