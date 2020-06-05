@@ -71,7 +71,7 @@ Aims:
 
 \begin{frame} 
  \frametitle{\Large Assumptions}
-\vspace{-1cm}
+\vspace{-0.7cm}
 \begin{center}
 \begin{columns}[c]
 \begin{column}{0.6\textwidth} 
@@ -88,7 +88,9 @@ Aims:
 \end{columns}
 \end{center}
 \small
-\vspace{0.5cm}
+
+\medskip
+Vorticity Transport:
 \begin{equation*}
 \frac{D \omega_{\theta}}{D t}
 	= 
@@ -104,6 +106,9 @@ Aims:
 	\frac{\omega_{\theta}}{r^2}
 	\bigg]
 \end{equation*}
+
+\medskip
+Streamfunction:
 \begin{equation*} 
 	\frac{1}{r}\frac{\partial}{\partial r} r 
 	\frac{\partial {\psi}}{\partial r}
@@ -114,16 +119,15 @@ Aims:
 	=
 	-r \omega_{\theta}
 \end{equation*}
-\begin{equation*}
- \frac{\partial c}{\partial t} + \textbf{v} \cdot \nabla c = \frac{1}{ReSc} \nabla^{2} c
-\end{equation*}
 
+\medskip
+Species Transport:
 \begin{equation*}
- \textbf{v} = \textbf{D} \psi
-\end{equation*}\\[0.8cm]
+ \frac{D c}{D t} = \frac{1}{ReSc} \nabla^{2} c
+\end{equation*} \\[0.8cm]
 
-Where \textbf{D} is a differential operator
-$\big[\partial / \partial y,- \partial / \partial x \big]$
+
+where D/Dt is the material derivator operator.
 
 \end{frame}
 
