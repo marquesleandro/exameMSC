@@ -115,12 +115,132 @@ Species Transport:
 
 \begin{frame}
 \frametitle{Arbitrary Lagrangian-Eulerian (ALE)}
-  \justifying
-  In ALE description, the referential frame moves with an arbitrary velocity that does not necessary represents the Lagrangian or Eulerian description
-
-\vspace{1cm} 
 \begin{center}
 \begin{tikzpicture}
+
+ % (a) Lagrangian
+ % -------------------------------------------------------------------
+ % bottom line
+ \draw (0,4) -- (6,4);
+
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (0,4) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (1,4) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (2.7,4) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (4,4) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (5.1,4) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (6,4) {};
+
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (0,4) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (1,4) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (2.7,4) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (4,4) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (5.1,4) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (6.0,4) {};
+
+ % top line
+ \draw (0.5,5) -- (5.4,5);
+
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (0.5,5) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (1.4,5) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (2.3,5) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (3.5,5) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (4.6,5) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (5.4,5) {};
+
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (0.5,5) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (1.4,5) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (2.3,5){};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (3.5,5) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (4.6,5) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (5.4,5) {};
+
+ % mesh motion
+ \draw [dashed] (0,4)   -- (0.5,5)  ;
+ \draw [dashed] (1,4)   -- (1.4,5)  ;
+ \draw [dashed] (2.7,4) -- (2.3,5);
+ \draw [dashed] (4,4)   -- (3.5,5)  ;
+ \draw [dashed] (5.1,4) -- (4.6,5);
+ \draw [dashed] (6,4)   -- (5.4,5)  ;
+
+ % particle motion
+ \draw [dotted] (0,4.15) -- (0.5,4.85);
+ \draw [dotted] (1,4.15) -- (1.4,4.85);
+ \draw [dotted] (2.7,4.15) -- (2.3,4.85);
+ \draw [dotted] (4,4.15) -- (3.5,4.85);
+ \draw [dotted] (5.1,4.15) -- (4.6,4.85);
+ \draw [dotted] (6,4.15) -- (5.4,4.85):
+
+
+
+ % Eulerian legend 
+ \draw [latexnew-latex] (-0.3,4) -- (-0.3,5);
+ \node at (-0.5,4.5) {t};
+ \node at (3,3.5) {\scriptsize (a)};
+ % -------------------------------------------------------------------
+ 
+
+
+ % (b) Eulerian
+ % -------------------------------------------------------------------
+ % bottom line
+ \draw (0,2) -- (6,2);
+
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (0,2) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (1,2) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (2.7,2) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (4,2) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (5.1,2) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (6,2) {};
+
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (0,2) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (1,2) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (2.7,2) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (4,2) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (5.1,2) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (6.0,2) {};
+
+ % top line
+ \draw (0,3) -- (6,3);
+
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (0.5,3) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (1.4,3) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (2.3,3) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (3.5,3) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (4.6,3) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (5.4,3) {};
+
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (0,3) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (1,3) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (2.7,3){};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (4,3) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (5.1,3) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (6.0,3) {};
+
+ % mesh motion
+ \draw [dashed] (0,2)   -- (0,3)  ;
+ \draw [dashed] (1,2)   -- (1,3)  ;
+ \draw [dashed] (2.7,2) -- (2.7,3);
+ \draw [dashed] (4,2)   -- (4,3)  ;
+ \draw [dashed] (5.1,2) -- (5.1,3);
+ \draw [dashed] (6,2)   -- (6,3)  ;
+
+ % particle motion
+ \draw [dotted] (0,2.15) -- (0.5,2.85);
+ \draw [dotted] (1,2.15) -- (1.4,2.85);
+ \draw [dotted] (2.7,2.15) -- (2.3,2.85);
+ \draw [dotted] (4,2.15) -- (3.5,2.85);
+ \draw [dotted] (5.1,2.15) -- (4.6,2.85);
+ \draw [dotted] (6,2.15) -- (5.4,2.85):
+
+
+
+ % Eulerian legend 
+ \draw [latexnew-latex] (-0.3,2) -- (-0.3,3);
+ \node at (-0.5,2.5) {t};
+ \node at (3,1.5) {\scriptsize (b)};
+ % -------------------------------------------------------------------
+ 
+
 
  % (c) ALE
  % -------------------------------------------------------------------
@@ -142,18 +262,18 @@ Species Transport:
  \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (6.0,0) {};
 
  % top line
- \draw (0,1) -- (6,1);
+ \draw (0.2,1) -- (5.8,1);
 
  \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (0.5,1) {};
  \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (1.4,1) {};
- \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (2.6,1) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (2.3,1) {};
  \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (3.5,1) {};
  \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (4.6,1) {};
  \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (5.4,1) {};
 
  \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (0.2,1) {};
  \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (1.1,1) {};
- \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (2.3,1) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (2.8,1) {};
  \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (3.8,1) {};
  \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (4.9,1) {};
  \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (5.8,1) {};
@@ -161,7 +281,7 @@ Species Transport:
  % mesh motion
  \draw [dashed] (0,0.0) -- (0.2,1);
  \draw [dashed] (1,0.0) -- (1.1,1);
- \draw [dashed] (2.7,0.0) -- (2.3,1);
+ \draw [dashed] (2.7,0.0) -- (2.8,1);
  \draw [dashed] (4,0.0) -- (3.8,1);
  \draw [dashed] (5.1,0.0) -- (4.9,1);
  \draw [dashed] (6,0.0) -- (5.8,1);
@@ -169,7 +289,7 @@ Species Transport:
  % particle motion
  \draw [dotted] (0,0.15) -- (0.5,0.85);
  \draw [dotted] (1,0.15) -- (1.4,0.85);
- \draw [dotted] (2.7,0.15) -- (2.6,0.85);
+ \draw [dotted] (2.7,0.15) -- (2.3,0.85);
  \draw [dotted] (4,0.15) -- (3.5,0.85);
  \draw [dotted] (5.1,0.15) -- (4.6,0.85);
  \draw [dotted] (6,0.15) -- (5.4,0.85):
@@ -197,6 +317,12 @@ Species Transport:
 
 \end{tikzpicture}
 \end{center}
+
+\justifying
+In ALE description, the referential frame moves with an arbitrary velocity that does not necessary represents the Lagrangian or Eulerian description
+
+
+
 
 \end{frame}
 
