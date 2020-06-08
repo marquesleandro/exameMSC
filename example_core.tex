@@ -115,11 +115,14 @@ Species Transport:
 
 \begin{frame}
 \frametitle{Arbitrary Lagrangian-Eulerian (ALE)}
+\vspace{-0.8cm}
 \begin{columns}[c]
-\column{.35\textwidth}
+\column{.4\textwidth}
 \justifying
-In ALE description (c), the referential frame moves with an arbitrary velocity that does not necessary represents the Lagrangian (a) or Eulerian (b) description
+In ALE description, the referential frame moves with an arbitrary velocity that does not necessary represents the Lagrangian or Eulerian description.
 
+\bigskip
+The convection velocity \textbf{c} is the relative velocity between the material and the mesh velocity, that is, $\textbf{c} = \textbf{v}-\hat{\textbf{v}}$
 
 
 
@@ -130,61 +133,61 @@ In ALE description (c), the referential frame moves with an arbitrary velocity t
  % (a) Lagrangian
  % -------------------------------------------------------------------
  % bottom line
- \draw (0,4) -- (6,4);
+ \draw (0,5) -- (6,5);
 
- \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (0,4) {};
- \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (1,4) {};
- \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (2.7,4) {};
- \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (4,4) {};
- \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (5.1,4) {};
- \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (6,4) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (0,5) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (1,5) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (2.7,5) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (4,5) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (5.1,5) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (6,5) {};
 
- \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (0,4) {};
- \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (1,4) {};
- \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (2.7,4) {};
- \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (4,4) {};
- \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (5.1,4) {};
- \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (6.0,4) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (0,5) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (1,5) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (2.7,5) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (4,5) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (5.1,5) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (6.0,5) {};
 
  % top line
- \draw (0.5,5) -- (5.4,5);
+ \draw (0.5,6) -- (5.4,6);
 
- \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (0.5,5) {};
- \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (1.4,5) {};
- \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (2.3,5) {};
- \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (3.5,5) {};
- \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (4.6,5) {};
- \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (5.4,5) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (0.5,6) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (1.4,6) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (2.3,6) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (3.5,6) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (4.6,6) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (5.4,6) {};
 
- \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (0.5,5) {};
- \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (1.4,5) {};
- \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (2.3,5){};
- \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (3.5,5) {};
- \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (4.6,5) {};
- \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (5.4,5) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (0.5,6) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (1.4,6) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (2.3,6){};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (3.5,6) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (4.6,6) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (5.4,6) {};
 
  % mesh motion
- \draw [dashed] (0,4)   -- (0.5,5)  ;
- \draw [dashed] (1,4)   -- (1.4,5)  ;
- \draw [dashed] (2.7,4) -- (2.3,5);
- \draw [dashed] (4,4)   -- (3.5,5)  ;
- \draw [dashed] (5.1,4) -- (4.6,5);
- \draw [dashed] (6,4)   -- (5.4,5)  ;
+ \draw [dashed] (0,  5) -- (0.5,6)  ;
+ \draw [dashed] (1,  5) -- (1.4,6)  ;
+ \draw [dashed] (2.7,5) -- (2.3,6);
+ \draw [dashed] (4,  5) -- (3.5,6)  ;
+ \draw [dashed] (5.1,5) -- (4.6,6);
+ \draw [dashed] (6,  5) -- (5.4,6)  ;
 
  % particle motion
- \draw [dotted] (0,4.15) -- (0.5,4.85);
- \draw [dotted] (1,4.15) -- (1.4,4.85);
- \draw [dotted] (2.7,4.15) -- (2.3,4.85);
- \draw [dotted] (4,4.15) -- (3.5,4.85);
- \draw [dotted] (5.1,4.15) -- (4.6,4.85);
- \draw [dotted] (6,4.15) -- (5.4,4.85):
+ \draw [dotted] (0,  5.15) -- (0.5,5.85);
+ \draw [dotted] (1,  5.15) -- (1.4,5.85);
+ \draw [dotted] (2.7,5.15) -- (2.3,5.85);
+ \draw [dotted] (4,  5.15) -- (3.5,5.85);
+ \draw [dotted] (5.1,5.15) -- (4.6,5.85);
+ \draw [dotted] (6,  5.15) -- (5.4,5.85):
 
 
 
  % Eulerian legend 
- \draw [latexnew-latex] (-0.3,4) -- (-0.3,5);
- \node at (-0.5,4.5) {t};
- \node at (3,3.5) {\scriptsize (a)};
+ \draw [latexnew-latex] (-0.3,5) -- (-0.3,6);
+ \node at (-0.5,5.5) {t};
+ \node at (3,6.5) {\scriptsize Lagrangian description};
  % -------------------------------------------------------------------
  
 
@@ -192,61 +195,61 @@ In ALE description (c), the referential frame moves with an arbitrary velocity t
  % (b) Eulerian
  % -------------------------------------------------------------------
  % bottom line
- \draw (0,2) -- (6,2);
+ \draw (0,2.5) -- (6,2.5);
 
- \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (0,2) {};
- \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (1,2) {};
- \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (2.7,2) {};
- \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (4,2) {};
- \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (5.1,2) {};
- \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (6,2) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (0,2.5) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (1,2.5) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (2.7,2.5) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (4,2.5) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (5.1,2.5) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (6,2.5) {};
 
- \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (0,2) {};
- \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (1,2) {};
- \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (2.7,2) {};
- \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (4,2) {};
- \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (5.1,2) {};
- \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (6.0,2) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (0,  2.5) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (1,  2.5) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (2.7,2.5) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (4,  2.5) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (5.1,2.5) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (6.0,2.5) {};
 
  % top line
- \draw (0,3) -- (6,3);
+ \draw (0,3.5) -- (6,3.5);
 
- \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (0.5,3) {};
- \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (1.4,3) {};
- \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (2.3,3) {};
- \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (3.5,3) {};
- \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (4.6,3) {};
- \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (5.4,3) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (0.5,3.5) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (1.4,3.5) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (2.3,3.5) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (3.5,3.5) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (4.6,3.5) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (5.4,3.5) {};
 
- \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (0,3) {};
- \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (1,3) {};
- \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (2.7,3){};
- \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (4,3) {};
- \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (5.1,3) {};
- \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (6.0,3) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (0,  3.5) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (1,  3.5) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (2.7,3.5){};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (4,  3.5) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (5.1,3.5) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (6.0,3.5) {};
 
  % mesh motion
- \draw [dashed] (0,2)   -- (0,3)  ;
- \draw [dashed] (1,2)   -- (1,3)  ;
- \draw [dashed] (2.7,2) -- (2.7,3);
- \draw [dashed] (4,2)   -- (4,3)  ;
- \draw [dashed] (5.1,2) -- (5.1,3);
- \draw [dashed] (6,2)   -- (6,3)  ;
+ \draw [dashed] (0,  2.5) -- (0,  3.5)  ;
+ \draw [dashed] (1,  2.5) -- (1,  3.5)  ;
+ \draw [dashed] (2.7,2.5) -- (2.7,3.5)  ;
+ \draw [dashed] (4,  2.5) -- (4,  3.5)  ;
+ \draw [dashed] (5.1,2.5) -- (5.1,3.5)  ;
+ \draw [dashed] (6,  2.5) -- (6,  3.5)  ;
 
  % particle motion
- \draw [dotted] (0,2.15) -- (0.5,2.85);
- \draw [dotted] (1,2.15) -- (1.4,2.85);
- \draw [dotted] (2.7,2.15) -- (2.3,2.85);
- \draw [dotted] (4,2.15) -- (3.5,2.85);
- \draw [dotted] (5.1,2.15) -- (4.6,2.85);
- \draw [dotted] (6,2.15) -- (5.4,2.85):
+ \draw [dotted] (0,  2.65) -- (0.5,3.35);
+ \draw [dotted] (1,  2.65) -- (1.4,3.35);
+ \draw [dotted] (2.7,2.65) -- (2.3,3.35);
+ \draw [dotted] (4,  2.65) -- (3.5,3.35);
+ \draw [dotted] (5.1,2.65) -- (4.6,3.35);
+ \draw [dotted] (6,  2.65) -- (5.4,3.35):
 
 
 
  % Eulerian legend 
- \draw [latexnew-latex] (-0.3,2) -- (-0.3,3);
- \node at (-0.5,2.5) {t};
- \node at (3,1.5) {\scriptsize (b)};
+ \draw [latexnew-latex] (-0.3,2.5) -- (-0.3,3.5);
+ \node at (-0.5,3) {t};
+ \node at (3,4.0) {\scriptsize Eulerian description};
  % -------------------------------------------------------------------
  
 
@@ -308,32 +311,56 @@ In ALE description (c), the referential frame moves with an arbitrary velocity t
  % ALE legend 
  \draw [latexnew-latex] (-0.3,0) -- (-0.3,1);
  \node at (-0.5,0.5) {t};
- \node at (3,-0.5) {\scriptsize (c)};
+ \node at (3,1.5) {\scriptsize ALE description};
  
 
  % picture legend
- \node[square, draw, inner sep=0pt, minimum size=8pt] at (0.5,-1);
- \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (0.5,-1.5);
- \draw [dotted] (3.5,-1) -- (4.08,-1);
- \draw [dashed] (3.5,-1.5) -- (4.1,-1.5);
+ \node[square, draw, inner sep=0pt, minimum size=8pt] at (0.5,-0.7);
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (0.5,-1.2);
+ \draw [dotted] (3.5,-0.7) -- (4.08,-0.7);
+ \draw [dashed] (3.5,-1.2) -- (4.1,-1.2);
 
- \node at (1.5,-1) {\tiny material point};
- \node at (1.0,-1.5) {\tiny node};
- \node at (5.0,-1) {\tiny particle motion};
- \node at (4.9,-1.5) {\tiny mesh motion};
+ \node at (1.5,-0.7) {\tiny material point};
+ \node at (1.0,-1.2) {\tiny node};
+ \node at (5.0,-0.7) {\tiny particle motion};
+ \node at (4.9,-1.2) {\tiny mesh motion};
  % -------------------------------------------------------------------
 
 
 \end{tikzpicture}
 \end{center}
 \end{columns}
-
-
 \end{frame}
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame} 
+ \frametitle{\Large Arbitrary Lagrangian-Eulerian}
+\vspace{-1cm}
+Vorticity Transport:
+\begin{equation*}
+ \frac{\partial \omega}{\partial t} + \textbf{v} \cdot \nabla \omega = \frac{1}{Re} \nabla^{2} \omega
+\end{equation*}
+
+\medskip
+Streamfunction:
+\begin{equation*} 
+ \nabla^{2} \psi = - \omega
+\end{equation*}
+
+\medskip
+Species Transport:
+\begin{equation*}
+ \frac{\partial c}{\partial t} + \textbf{v} \cdot \nabla c = \frac{1}{ReSc} \nabla^{2} c
+\end{equation*} \\[0.8cm]
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 
 \begin{frame} 
