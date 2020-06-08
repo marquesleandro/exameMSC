@@ -69,52 +69,9 @@ Aims:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame} 
- \frametitle{\Large Assumptions}
-\vspace{-1cm}
-\begin{center}
-\begin{columns}[c]
-\begin{column}{0.6\textwidth} 
-\hspace{1cm}  1. Continuum hypothesis\\[0.1cm]
-\hspace{1cm}  2. Homogeneous and Isotropic\\[0.1cm]
-\hspace{1cm}  3. Incompressible\\[0.1cm]
-\hspace{1cm}  4. Newtonian
-\end{column}
-\begin{column}{0.6\textwidth}
-\hspace{0.5cm}  5. Constant Mass Difusivity\\[0.1cm]
-\hspace{0.5cm}  6. Single-phase Flow\\[0.1cm]
-\hspace{0.5cm}  7. Two-dimensional flow
-\end{column}
-\end{columns}
-\end{center}
-\small
-
-\medskip
-Vorticity Transport:
-\begin{equation*}
- \frac{\partial \omega}{\partial t} + \textbf{v} \cdot \nabla \omega = \frac{1}{Re} \nabla^{2} \omega
-\end{equation*}
-
-\medskip
-Streamfunction:
-\begin{equation*} 
- \nabla^{2} \psi = - \omega
-\end{equation*}
-
-\medskip
-Species Transport:
-\begin{equation*}
- \frac{\partial c}{\partial t} + \textbf{v} \cdot \nabla c = \frac{1}{ReSc} \nabla^{2} c
-\end{equation*} \\[0.8cm]
-
-\end{frame}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 \begin{frame}
-\frametitle{Arbitrary Lagrangian-Eulerian (ALE)}
+\frametitle{\LARGE Arbitrary Lagrangian-Eulerian (ALE)}
 \vspace{-0.8cm}
 \begin{columns}[c]
 \column{.4\textwidth}
@@ -337,11 +294,29 @@ The convection velocity \textbf{c} is the relative velocity between the material
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame} 
- \frametitle{\Large Arbitrary Lagrangian-Eulerian}
+ \frametitle{\LARGE Governing Equations}
 \vspace{-1cm}
+\begin{center}
+\begin{columns}[c]
+\begin{column}{0.6\textwidth} 
+\hspace{1cm}  1. Continuum hypothesis\\[0.1cm]
+\hspace{1cm}  2. Homogeneous and Isotropic\\[0.1cm]
+\hspace{1cm}  3. Incompressible\\[0.1cm]
+\hspace{1cm}  4. Newtonian
+\end{column}
+\begin{column}{0.6\textwidth}
+\hspace{0.5cm}  5. Constant Mass Difusivity\\[0.1cm]
+\hspace{0.5cm}  6. Single-phase Flow\\[0.1cm]
+\hspace{0.5cm}  7. Two-dimensional flow
+\end{column}
+\end{columns}
+\end{center}
+\small
+
+\medskip
 Vorticity Transport:
 \begin{equation*}
- \frac{\partial \omega}{\partial t} + \textbf{v} \cdot \nabla \omega = \frac{1}{Re} \nabla^{2} \omega
+ \frac{\partial \omega}{\partial t} + \textbf{c} \cdot \nabla \omega = \frac{1}{Re} \nabla^{2} \omega
 \end{equation*}
 
 \medskip
@@ -353,7 +328,7 @@ Streamfunction:
 \medskip
 Species Transport:
 \begin{equation*}
- \frac{\partial c}{\partial t} + \textbf{v} \cdot \nabla c = \frac{1}{ReSc} \nabla^{2} c
+ \frac{\partial \kappa}{\partial t} + \textbf{c} \cdot \nabla \kappa = \frac{1}{ReSc} \nabla^{2} \kappa
 \end{equation*} \\[0.8cm]
 
 \end{frame}
@@ -364,7 +339,7 @@ Species Transport:
 
 
 \begin{frame} 
- \frametitle{\Large Finite Element Method}
+ \frametitle{\LARGE Finite Element Method}
 \vspace{-1cm}
 \begin{center}
 \begin{columns}[c]
@@ -409,7 +384,7 @@ Where $\mathbf{K_{s}}$ is stability matrix to decrease spurious oscillations
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \iffalse
 \begin{frame} 
- \frametitle{\Large Solution Algorithm}
+ \frametitle{\LARGE Solution Algorithm}
 \vspace{-1cm}
 % Define block styles
 \tikzstyle{block} = [rectangle, draw,
@@ -533,7 +508,7 @@ u = \frac{4 u_{max}}{L^2} y \big[ L - y \big]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
- \frametitle{\Large Validation - Poiseuille Flow}
+ \frametitle{\LARGE Validation - Poiseuille Flow}
 \vspace{-0.55cm}
 \begin{center}
 \begin{columns}[c]
@@ -627,7 +602,7 @@ Bottom plate: $u=0$, $v=0$, $\psi=0$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
- \frametitle{\Large Validation - Lid Driven Cavity Flow}
+ \frametitle{\LARGE Validation - Lid Driven Cavity Flow}
 \vspace{-1.1cm}
 \begin{center}
 \begin{columns}[c]
@@ -746,7 +721,7 @@ Top plate: $u=1$, $v=0$ e $\psi=0$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
- \frametitle{\Large Results}
+ \frametitle{\LARGE Results}
 \begin{figure}
   \vspace{-1cm}
      \centering
@@ -797,7 +772,7 @@ $Re=54.5$
 
 \iffalse
 \begin{frame}
- \frametitle{\Large Results}
+ \frametitle{\LARGE Results}
 \begin{figure}
      \begin{minipage}{.50\linewidth}
       \centering
@@ -852,7 +827,7 @@ $Re=54.5$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
- \frametitle{\Large Results - Velocity Field}
+ \frametitle{\LARGE Results - Velocity Field}
 
 \vspace{-0.8cm}
 \begin{figure}
@@ -913,7 +888,7 @@ $Re=54.5$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
- \frametitle{\Large Results - Concentration Field}
+ \frametitle{\LARGE Results - Concentration Field}
 \vspace{-0.7cm}
 \begin{figure}
      \begin{minipage}{.50\linewidth}
@@ -1008,7 +983,7 @@ $Re=54.5$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
- \frametitle{\Large Conclusion}
+ \frametitle{\LARGE Conclusion}
  \vspace{-1cm}
 \begin{enumerate}
  \justifying
