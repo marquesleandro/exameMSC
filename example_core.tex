@@ -122,10 +122,18 @@ Species Transport:
 \begin{center}
 \begin{tikzpicture}
 
- % (a) Lagragian
+ % (c) ALE
  % -------------------------------------------------------------------
  % bottom line
  \draw (0,0) -- (6,0);
+
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (0,0) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (1,0) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (2.7,0) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (4,0) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (5.1,0) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (6,0) {};
+
  \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (0,0) {};
  \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (1,0) {};
  \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (2.7,0) {};
@@ -133,15 +141,16 @@ Species Transport:
  \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (5.1,0) {};
  \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (6.0,0) {};
 
- \node[square, draw, inner sep=0pt, minimum size=8pt] at (0,0) {};
- \node[square, draw, inner sep=0pt, minimum size=8pt] at (1,0) {};
- \node[square, draw, inner sep=0pt, minimum size=8pt] at (2.7,0) {};
- \node[square, draw, inner sep=0pt, minimum size=8pt] at (4,0) {};
- \node[square, draw, inner sep=0pt, minimum size=8pt] at (5.1,0) {};
- \node[square, draw, inner sep=0pt, minimum size=8pt] at (6,0) {};
-
  % top line
  \draw (0,1) -- (6,1);
+
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (0.5,1) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (1.4,1) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (2.6,1) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (3.5,1) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (4.6,1) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (5.4,1) {};
+
  \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (0.2,1) {};
  \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (1.1,1) {};
  \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (2.3,1) {};
@@ -149,20 +158,13 @@ Species Transport:
  \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (4.9,1) {};
  \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (5.8,1) {};
 
- \node[square, draw, inner sep=0pt, minimum size=8pt] at (0.5,1) {};
- \node[square, draw, inner sep=0pt, minimum size=8pt] at (1.4,1) {};
- \node[square, draw, inner sep=0pt, minimum size=8pt] at (2.6,1) {};
- \node[square, draw, inner sep=0pt, minimum size=8pt] at (3.5,1) {};
- \node[square, draw, inner sep=0pt, minimum size=8pt] at (4.6,1) {};
- \node[square, draw, inner sep=0pt, minimum size=8pt] at (5.4,1) {};
-
  % mesh motion
- \draw [dashed] (0,0.15) -- (0.2,1);
- \draw [dashed] (1,0.15) -- (1.1,1);
- \draw [dashed] (2.7,0.15) -- (2.3,1);
- \draw [dashed] (4,0.15) -- (3.8,1);
- \draw [dashed] (5.1,0.15) -- (4.9,1);
- \draw [dashed] (6,0.15) -- (5.8,1);
+ \draw [dashed] (0,0.0) -- (0.2,1);
+ \draw [dashed] (1,0.0) -- (1.1,1);
+ \draw [dashed] (2.7,0.0) -- (2.3,1);
+ \draw [dashed] (4,0.0) -- (3.8,1);
+ \draw [dashed] (5.1,0.0) -- (4.9,1);
+ \draw [dashed] (6,0.0) -- (5.8,1);
 
  % particle motion
  \draw [dotted] (0,0.15) -- (0.5,0.85);
@@ -183,14 +185,13 @@ Species Transport:
  % picture legend
  \node[square, draw, inner sep=0pt, minimum size=8pt] at (0.5,-1);
  \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (0.5,-1.5);
- \draw [dotted] (3.5,-1) -- (4.0,-1);
- \draw [dashed] (3.5,-1.5) -- (4.0,-1.5);
+ \draw [dotted] (3.5,-1) -- (4.08,-1);
+ \draw [dashed] (3.5,-1.5) -- (4.1,-1.5);
 
  \node at (1.5,-1) {\tiny material point};
  \node at (1.0,-1.5) {\tiny node};
  \node at (5.0,-1) {\tiny particle motion};
  \node at (4.9,-1.5) {\tiny mesh motion};
- 
  % -------------------------------------------------------------------
 
 
