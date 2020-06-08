@@ -312,25 +312,31 @@ The convection velocity \textbf{c} is the relative velocity between the material
 \end{columns}
 \end{center}
 \small
-
-\medskip
-Vorticity Transport:
+\vspace{0.5cm}
 \begin{equation*}
  \frac{\partial \omega}{\partial t} + \textbf{c} \cdot \nabla \omega = \frac{1}{Re} \nabla^{2} \omega
-\end{equation*}
-
-\medskip
-Streamfunction:
-\begin{equation*} 
+ \hspace{1.2cm}
  \nabla^{2} \psi = - \omega
 \end{equation*}
-
-\medskip
-Species Transport:
+\vspace{0.2cm}
 \begin{equation*}
  \frac{\partial \kappa}{\partial t} + \textbf{c} \cdot \nabla \kappa = \frac{1}{ReSc} \nabla^{2} \kappa
-\end{equation*} \\[0.8cm]
+\end{equation*}\\[0.8cm]
 
+\justifying
+The material velocity field is calculated by: 
+$v_{x} = \partial \psi / \partial y$ and 
+$v_{y} = - \partial \psi / \partial x$
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{\LARGE The semi-Lagragian Method}
+ description, figure and material derivate (same ALE frame)
 \end{frame}
 
 
@@ -382,7 +388,15 @@ Where $\mathbf{K_{s}}$ is stability matrix to decrease spurious oscillations
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\iffalse
+
+\begin{frame}
+ \frametitle{\LARGE Adaptive Mesh Refinement}
+ Laplace Smoothing description, comparative figures and ALE velocity formula
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{frame} 
  \frametitle{\LARGE Solution Algorithm}
 \vspace{-1cm}
@@ -416,7 +430,6 @@ Where $\mathbf{K_{s}}$ is stability matrix to decrease spurious oscillations
 \centering \scriptsize Streamfunction-Vorticity formulation with species transport equation solution algorithm
 
 \end{frame}
-\fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1014,8 +1027,8 @@ $Re=54.5$
  \Huge Thank you!\\
  \vspace{0.5cm}
  \small marquesleandro67@gmail.com\\
- \small gustavo.anjos@uerj.br\\
  \small jose.pontes@uerj.br\\
+ \small gustavo.rabello@mecanica.coppe.ufrj.br\\
  \vspace{1.0cm}
  \small The authors thank the FAPERJ (Research Support Foundation of the State of Rio de Janeiro)
         for its financial support
