@@ -112,6 +112,75 @@ Species Transport:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+\begin{frame}
+\frametitle{Arbitrary Lagrangian-Eulerian (ALE)}
+  \justifying
+  In ALE description, the referential frame moves with an arbitrary velocity that does not necessary represents the Lagrangian or Eulerian description
+
+\vspace{1cm} 
+\begin{center}
+\begin{tikzpicture}
+
+ % (a) Lagragian
+ % -------------------------------------------------------------------
+ % bottom line
+ \draw (0,0) -- (6,0);
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (0,0) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (1,0) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (2.7,0) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (4,0) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (5.1,0) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (6.0,0) {};
+
+ \node[square, draw, inner sep=0pt, minimum size=8pt] at (0,0) {};
+ \node[square, draw, inner sep=0pt, minimum size=8pt] at (1,0) {};
+ \node[square, draw, inner sep=0pt, minimum size=8pt] at (2.7,0) {};
+ \node[square, draw, inner sep=0pt, minimum size=8pt] at (4,0) {};
+ \node[square, draw, inner sep=0pt, minimum size=8pt] at (5.1,0) {};
+ \node[square, draw, inner sep=0pt, minimum size=8pt] at (6,0) {};
+
+ % top line
+ \draw (0,1) -- (6,1);
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (0.2,1) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (1.1,1) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (2.3,1) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (3.8,1) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (4.9,1) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (5.8,1) {};
+
+ \node[square, draw, inner sep=0pt, minimum size=8pt] at (0.2,1) {};
+ \node[square, draw, inner sep=0pt, minimum size=8pt] at (1.1,1) {};
+ \node[square, draw, inner sep=0pt, minimum size=8pt] at (2.3,1) {};
+ \node[square, draw, inner sep=0pt, minimum size=8pt] at (3.8,1) {};
+ \node[square, draw, inner sep=0pt, minimum size=8pt] at (4.9,1) {};
+ \node[square, draw, inner sep=0pt, minimum size=8pt] at (5.8,1) {};
+
+ % dotted line
+ \draw [dotted] (0,0) -- (0.2,1);
+ \draw [dotted] (1,0) -- (1.1,1);
+ \draw [dotted] (2.7,0) -- (2.3,1);
+ \draw [dotted] (4,0) -- (3.8,1);
+ \draw [dotted] (5.1,0) -- (4.9,1);
+ \draw [dotted] (6,0) -- (5.8,1);
+
+ % legend
+ \draw [latexnew-latex] (-0.3,0) -- (-0.3,1);
+ \node at (-0.5,0.5) {t};
+ \node at (3,-0.5) {\scriptsize (a)};
+ % -------------------------------------------------------------------
+
+
+\end{tikzpicture}
+\end{center}
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 \begin{frame} 
  \frametitle{\Large Finite Element Method}
 \vspace{-1cm}
