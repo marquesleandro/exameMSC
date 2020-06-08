@@ -18,7 +18,7 @@
 
 \begin{frame}
 \frametitle{Introduction}
-\vspace{-1.0cm}
+\vspace{-1.1cm}
 \begin{columns}[c]
 \column{.6\textwidth}
 Motivation:
@@ -27,16 +27,16 @@ Motivation:
   \item Ischaemic heart disease and stroke have remained the leading death causes globally in the last 15 years [1]
 \end{itemize}
  
-\vspace{0.35cm}
+\vspace{0.5cm}
  
 Aims:
 \begin{itemize}
  \justifying
- \item To develop a Finite Element code for axisymmetric vorticity-streamfunction formulation 
+ \item To develop a Finite Element code for stream-vorticity formulation 
        with species transport equation using the Arbitrary Lagrangian-Eulerian (ALE) approach \\
 
 
- \vspace{0.15cm}
+ \vspace{0.2cm}
  \item To create new drug-eluting design patent 
 
 \end{itemize}
@@ -71,7 +71,7 @@ Aims:
 
 \begin{frame} 
  \frametitle{\Large Assumptions}
-\vspace{-0.7cm}
+\vspace{-1cm}
 \begin{center}
 \begin{columns}[c]
 \begin{column}{0.6\textwidth} 
@@ -83,7 +83,7 @@ Aims:
 \begin{column}{0.6\textwidth}
 \hspace{0.5cm}  5. Constant Mass Difusivity\\[0.1cm]
 \hspace{0.5cm}  6. Single-phase Flow\\[0.1cm]
-\hspace{0.5cm}  7. Axisymmetric flow
+\hspace{0.5cm}  7. Two-dimensional flow
 \end{column}
 \end{columns}
 \end{center}
@@ -92,42 +92,20 @@ Aims:
 \medskip
 Vorticity Transport:
 \begin{equation*}
-\frac{D \omega_{\theta}}{D t}
-	= 
-	\frac{\omega_{\theta} v_r}{r}
-	+
-	\frac{1}{Re}
-	\bigg[
-	\frac{1}{r}\frac{\partial}{\partial r} r 
-	\frac{\partial {\omega_{\theta}}}{\partial r}
-	+
-	\frac{\partial^2 \omega_{\theta}}{\partial z^2}
-	-
-	\frac{\omega_{\theta}}{r^2}
-	\bigg]
+ \frac{\partial \omega}{\partial t} + \textbf{v} \cdot \nabla \omega = \frac{1}{Re} \nabla^{2} \omega
 \end{equation*}
 
 \medskip
 Streamfunction:
 \begin{equation*} 
-	\frac{1}{r}\frac{\partial}{\partial r} r 
-	\frac{\partial {\psi}}{\partial r}
-	+
-	\frac{\partial^2 \psi}{\partial z^2}
-	-
-	\frac{2}{r}\frac{\partial \psi}{\partial r}
-	=
-	-r \omega_{\theta}
+ \nabla^{2} \psi = - \omega
 \end{equation*}
 
 \medskip
 Species Transport:
 \begin{equation*}
- \frac{D c}{D t} = \frac{1}{ReSc} \nabla^{2} c
+ \frac{\partial c}{\partial t} + \textbf{v} \cdot \nabla c = \frac{1}{ReSc} \nabla^{2} c
 \end{equation*} \\[0.8cm]
-
-
-where D/Dt is the material derivator operator.
 
 \end{frame}
 
