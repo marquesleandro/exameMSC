@@ -72,22 +72,22 @@ Aims:
 
 \begin{frame}
 \frametitle{\LARGE Arbitrary Lagrangian-Eulerian (ALE)}
-\vspace{-0.8cm}
+\vspace{-0.5cm}
 \begin{columns}[c]
 \column{.4\textwidth}
 \justifying
 In ALE description, the referential frame moves with an arbitrary velocity that does not necessary represents the Lagrangian or Eulerian description.
 
 \bigskip
-The convection velocity \textbf{c} is the relative velocity between the material and the mesh velocity respectively, that is: \\
+The convection velocity \textbf{c} is the relative velocity between the material and the mesh velocity respectively, that is [2]: \\
 \begin{center}
 $\textbf{c} = \textbf{v}-\hat{\textbf{v}}$
 \end{center}
 
 
-\column{.7\textwidth}
+\column{.5\textwidth}
 \begin{center}
-\begin{tikzpicture}
+\begin{tikzpicture}[scale=0.8]
 
  % (a) Lagrangian
  % -------------------------------------------------------------------
@@ -279,16 +279,20 @@ $\textbf{c} = \textbf{v}-\hat{\textbf{v}}$
  \draw [dotted] (3.5,-0.7) -- (4.08,-0.7);
  \draw [dashed] (3.5,-1.2) -- (4.1,-1.2);
 
- \node at (1.5,-0.7) {\tiny material point};
- \node at (1.0,-1.2) {\tiny node};
- \node at (5.0,-0.7) {\tiny particle motion};
- \node at (4.9,-1.2) {\tiny mesh motion};
+ \node at (1.7,-0.7) {\tiny material point};
+ \node at (1.2,-1.2) {\tiny node};
+ \node at (5.2,-0.7) {\tiny particle motion};
+ \node at (5.1,-1.2) {\tiny mesh motion};
  % -------------------------------------------------------------------
 
 
 \end{tikzpicture}
 \end{center}
 \end{columns}
+
+\vspace{0.3cm}
+\tiny [2]
+Donea, J., Huerta, A., Ponthot, J.‐P. and Rodríguez‐Ferran, A. (2004). Arbitrary Lagrangian–Eulerian Methods. In Encyclopedia of Computational Mechanics \textit{doi:10.1002/0470091355.ecm009}
 \end{frame}
 
 
@@ -337,7 +341,7 @@ $v_{y} = - \partial \psi / \partial x$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
- \frametitle{\LARGE The semi-Lagragian Method}
+ \frametitle{\LARGE semi-Lagragian Method}
 
 \vspace{-0.8cm}
 \begin{columns}[c]
@@ -546,6 +550,25 @@ while developing the searching procedure
 \end{equation*}\\[0.5cm]
 
 Where $\mathbf{K_{s}}$ is stability matrix to decrease spurious oscillations
+
+\vspace{0.5cm}
+\begin{equation*}
+ \frac{\partial \omega}{\partial t} + \textbf{c} \cdot \nabla \omega = \frac{1}{Re} \nabla^{2} \omega
+ \hspace{1.2cm}
+ \nabla^{2} \psi = - \omega
+\end{equation*}
+\vspace{0.2cm}
+\begin{equation*}
+ \frac{\partial \kappa}{\partial t} + \textbf{c} \cdot \nabla \kappa = \frac{1}{ReSc} \nabla^{2} \kappa
+\end{equation*}\\[0.8cm]
+
+\justifying
+The material velocity field is calculated by: 
+$v_{x} = \partial \psi / \partial y$ and 
+$v_{y} = - \partial \psi / \partial x$
+
+\
+
 
 \end{frame}
 
