@@ -79,8 +79,10 @@ Aims:
 In ALE description, the referential frame moves with an arbitrary velocity that does not necessary represents the Lagrangian or Eulerian description.
 
 \bigskip
-The convection velocity \textbf{c} is the relative velocity between the material and the mesh velocity, that is, $\textbf{c} = \textbf{v}-\hat{\textbf{v}}$
-
+The convection velocity \textbf{c} is the relative velocity between the material and the mesh velocity respectively, that is: \\
+\begin{center}
+$\textbf{c} = \textbf{v}-\hat{\textbf{v}}$
+\end{center}
 
 
 \column{.7\textwidth}
@@ -357,6 +359,12 @@ The convection velocity \textbf{c} is the relative velocity between the material
  \draw (2.5,2.8) -- (4.0,2.8);
  \draw (2.5,3.0) -- (4.0,3.0);
 
+ % material points
+ \draw[dashed] (2.8,2.5) -- (3.12,2.8);
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (2.8,2.5) {};
+ \node[square, fill=white, draw, inner sep=0pt, minimum size=8pt] at (3.12,2.8) {};
+ 
+
  % nodes
  \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (2.60,2.5) {};
  \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (3.12,2.5) {};
@@ -377,7 +385,6 @@ The convection velocity \textbf{c} is the relative velocity between the material
  % legend
  \node[draw=none, scale=0.8] at (2.80,2.62) {\small $\mathbf{x}_{d}$};
  \node[draw=none, scale=0.8] at (3.22,2.68) {\small $\mathbf{x}_{i}$};
- \draw[dashed,-stealth] (2.86,2.55) -- (3.12,2.72);
 
  \node[draw=none, scale=0.8] at (4.10,2.50) {\small $t^{n}$};
  \node[draw=none, scale=0.8] at (4.15,2.80) {\small $t^{n+1}$};
@@ -387,12 +394,15 @@ The convection velocity \textbf{c} is the relative velocity between the material
  \node[draw=none, scale=0.8] at (3.12,2.35) {\small $\mathbf{x}_{i}$};
  \node[draw=none, scale=0.8] at (3.64,2.35) {\small $\mathbf{x}_{i+1}$};
  \node[draw=none, scale=0.8] at (3.25,2.10) {\large (a)};
- 
- 
+
+ % ----------------------------------------------------
+
+ % boundary 
  \draw[line width=0.2mm] (2.5,1.6) -- (4.0,1.6);
  \draw[line width=0.2mm] (2.5,1.6) -- (2.5,0.5);
  \draw[line width=0.2mm] (2.5,0.5) -- (4.0,0.5);
 
+ % nodes
  \coordinate (A) at (2.500,0.5000) {};
  \coordinate (B) at (2.500,0.8667) {};
  \coordinate (C) at (2.500,1.2330) {};
@@ -410,17 +420,19 @@ The convection velocity \textbf{c} is the relative velocity between the material
  \coordinate (O) at (3.400,1.0000) {};
  \coordinate (P) at (3.500,1.2300) {};
 
+ % elements
  \draw (A) -- (E) -- (B) -- cycle;
  \draw (A) -- (I) -- (E) -- cycle;
- \draw (I) -- (J) -- (E) -- cycle;
+ \draw[red,line width=0.04cm] (I) -- (J) -- (E) -- cycle;
  \draw (E) -- (J) -- (F) -- cycle;
  \draw (E) -- (F) -- (B) -- cycle;
  \draw (B) -- (F) -- (C) -- cycle;
+ \draw[red,line width=0.04cm] (B) -- (C);
  \draw (J) -- (K) -- (F) -- cycle;
  \draw (F) -- (K) -- (G) -- cycle;
  \draw (C) -- (F) -- (G) -- cycle;
  \draw (C) -- (G) -- (D) -- cycle;
- \draw (G) -- (K) -- (H) -- cycle;
+ \draw[red,line width=0.04cm] (G) -- (K) -- (H) -- cycle;
  \draw (G) -- (H) -- (D) -- cycle;
  \draw (I) -- (N) -- (J) -- cycle;
  \draw (I) -- (M) -- (N) -- cycle;
@@ -430,26 +442,49 @@ The convection velocity \textbf{c} is the relative velocity between the material
  \draw (K) -- (L) -- (H) -- cycle;
  \draw (O) -- (P) -- (K) -- cycle;
 
- \node[circle, fill=black, inner sep=0pt, minimum size=4.5pt] at (J) {};
- \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (2.95,0.65) {};
- \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (2.90,1.45) {};
- \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (2.4,1.05) {};
 
- \draw[-stealth] (J) edge (2.965,0.66);
- \draw[-stealth] (J) edge (2.91,1.43);
- \draw[-stealth] (J) edge (2.42,1.05);
+ % draw nodes
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (A) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (B) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (C) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (D) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (E) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (F) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (G) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (H) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (I) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (J) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (K) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (L) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (M) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (N) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (O) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (P) {};
+
+
+ % arrow
+ \draw[dashed,line width=0.02cm] (J) edge (2.95,0.65);
+ \draw[dashed,line width=0.02cm] (J) edge (2.90,1.45);
+ \draw[dashed,line width=0.02cm] (J) edge (2.4,1.05) ;
+
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (J) {};
+
+ % departure nodes
+ \node[circle, fill=white, draw, inner sep=0pt, minimum size=4pt] at (2.95,0.65) {};
+ \node[circle, fill=white, draw, inner sep=0pt, minimum size=4pt] at (2.90,1.45) {};
+ \node[circle, fill=white, draw, inner sep=0pt, minimum size=4pt] at (2.4,1.05) {};
+
+
  
- \node[draw=none, scale=0.8] at (3.27,0.97) {$\omega_{i}^{n+1}$};
- \node[draw=none, scale=0.8] at (3.05,0.66) {$\omega_{d}^{n}$};
- \node[draw=none, scale=0.8] at (3.0,1.44) {$\omega_{d}^{n}$};
- \node[draw=none, scale=0.8] at (2.41,1.13) {$\omega_{d}^{n}$};
+ % legend
+ \node[draw=none, scale=0.8] at (3.22,0.96) {\small $x_{i}$};
  
- \node[draw=none, scale=0.6] at (3.0,0.74) {$1$};
- \node[draw=none, scale=0.6] at (3.07,1.158) {$2$};
- \node[draw=none, scale=0.6] at (2.6,1.05) {$3$};
+ \node[draw=none, scale=0.8] at (3.05,0.64) {$1$};
+ \node[draw=none, scale=0.8] at (3.00,1.45) {$2$};
+ \node[draw=none, scale=0.8] at (2.4,1.15) {$3$};
  
- \node[draw=none, scale=0.9] at (3.7,1.0) {$domain$};
- \node[draw=none, scale=0.9] at (3.8,1.65) {$boundary$};
+ \node[draw=none, scale=0.9] at (3.7,1.0) {\small $domain$};
+ \node[draw=none, scale=0.9] at (3.8,1.65) {\small $boundary$};
 
 \node[draw=none, scale=0.8] at (3.25,0.3) {\large (b)};
 
