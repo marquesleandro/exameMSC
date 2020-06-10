@@ -336,8 +336,132 @@ $v_{y} = - \partial \psi / \partial x$
 
 \begin{frame}
  \frametitle{\LARGE The semi-Lagragian Method}
- description, figure and material derivate (same ALE frame)
+
+\vspace{-0.8cm}
+\begin{columns}[c]
+\column{.4\textwidth}
+\justifying
+In ALE description, the referential frame moves with an arbitrary velocity that does not necessary represents the Lagrangian or Eulerian description.
+
+\bigskip
+The convection velocity \textbf{c} is the relative velocity between the material and the mesh velocity, that is, $\textbf{c} = \textbf{v}-\hat{\textbf{v}}$
+
+
+
+\column{.7\textwidth}
+\begin{center}
+\begin{tikzpicture}[scale=2.5]
+ 
+ % grid
+ \draw (2.5,2.5) -- (4.0,2.5);
+ \draw (2.5,2.8) -- (4.0,2.8);
+ \draw (2.5,3.0) -- (4.0,3.0);
+
+ % nodes
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (2.60,2.5) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (3.12,2.5) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (3.64,2.5) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (3.90,2.5) {};
+
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (2.60,2.8) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (3.12,2.8) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (3.64,2.8) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (3.90,2.8) {};
+
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (2.60,3.0) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (3.12,3.0) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (3.64,3.0) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (3.90,3.0) {};
+
+
+ % legend
+ \node[draw=none, scale=0.8] at (2.80,2.62) {\small $\mathbf{x}_{d}$};
+ \node[draw=none, scale=0.8] at (3.22,2.68) {\small $\mathbf{x}_{i}$};
+ \draw[dashed,-stealth] (2.86,2.55) -- (3.12,2.72);
+
+ \node[draw=none, scale=0.8] at (4.10,2.50) {\small $t^{n}$};
+ \node[draw=none, scale=0.8] at (4.15,2.80) {\small $t^{n+1}$};
+ \node[draw=none, scale=0.8] at (4.15,3.00) {\small $t^{n+2}$};
+
+ \node[draw=none, scale=0.8] at (2.60,2.35) {\small $\mathbf{x}_{i-1}$};
+ \node[draw=none, scale=0.8] at (3.12,2.35) {\small $\mathbf{x}_{i}$};
+ \node[draw=none, scale=0.8] at (3.64,2.35) {\small $\mathbf{x}_{i+1}$};
+ \node[draw=none, scale=0.8] at (3.25,2.10) {\large (a)};
+ 
+ 
+ \draw[line width=0.2mm] (2.5,1.6) -- (4.0,1.6);
+ \draw[line width=0.2mm] (2.5,1.6) -- (2.5,0.5);
+ \draw[line width=0.2mm] (2.5,0.5) -- (4.0,0.5);
+
+ \coordinate (A) at (2.500,0.5000) {};
+ \coordinate (B) at (2.500,0.8667) {};
+ \coordinate (C) at (2.500,1.2330) {};
+ \coordinate (D) at (2.500,1.6000) {};
+ \coordinate (E) at (2.733,0.6830) {};
+ \coordinate (F) at (2.833,1.0500) {};
+ \coordinate (G) at (2.733,1.4160) {};
+ \coordinate (H) at (3.000,1.6000) {};
+ \coordinate (I) at (3.066,0.5000) {};
+ \coordinate (J) at (3.166,0.8660) {};
+ \coordinate (K) at (3.150,1.3330) {};
+ \coordinate (L) at (3.333,1.6000) {};
+ \coordinate (M) at (3.500,0.5000) {};
+ \coordinate (N) at (3.333,0.6830) {};
+ \coordinate (O) at (3.400,1.0000) {};
+ \coordinate (P) at (3.500,1.2300) {};
+
+ \draw (A) -- (E) -- (B) -- cycle;
+ \draw (A) -- (I) -- (E) -- cycle;
+ \draw (I) -- (J) -- (E) -- cycle;
+ \draw (E) -- (J) -- (F) -- cycle;
+ \draw (E) -- (F) -- (B) -- cycle;
+ \draw (B) -- (F) -- (C) -- cycle;
+ \draw (J) -- (K) -- (F) -- cycle;
+ \draw (F) -- (K) -- (G) -- cycle;
+ \draw (C) -- (F) -- (G) -- cycle;
+ \draw (C) -- (G) -- (D) -- cycle;
+ \draw (G) -- (K) -- (H) -- cycle;
+ \draw (G) -- (H) -- (D) -- cycle;
+ \draw (I) -- (N) -- (J) -- cycle;
+ \draw (I) -- (M) -- (N) -- cycle;
+ \draw (N) -- (O) -- (J) -- cycle;
+ \draw (J) -- (O) -- (K) -- cycle;
+ \draw (P) -- (L) -- (K) -- cycle;
+ \draw (K) -- (L) -- (H) -- cycle;
+ \draw (O) -- (P) -- (K) -- cycle;
+
+ \node[circle, fill=black, inner sep=0pt, minimum size=4.5pt] at (J) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (2.95,0.65) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (2.90,1.45) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (2.4,1.05) {};
+
+ \draw[-stealth] (J) edge (2.965,0.66);
+ \draw[-stealth] (J) edge (2.91,1.43);
+ \draw[-stealth] (J) edge (2.42,1.05);
+ 
+ \node[draw=none, scale=0.8] at (3.27,0.97) {$\omega_{i}^{n+1}$};
+ \node[draw=none, scale=0.8] at (3.05,0.66) {$\omega_{d}^{n}$};
+ \node[draw=none, scale=0.8] at (3.0,1.44) {$\omega_{d}^{n}$};
+ \node[draw=none, scale=0.8] at (2.41,1.13) {$\omega_{d}^{n}$};
+ 
+ \node[draw=none, scale=0.6] at (3.0,0.74) {$1$};
+ \node[draw=none, scale=0.6] at (3.07,1.158) {$2$};
+ \node[draw=none, scale=0.6] at (2.6,1.05) {$3$};
+ 
+ \node[draw=none, scale=0.9] at (3.7,1.0) {$domain$};
+ \node[draw=none, scale=0.9] at (3.8,1.65) {$boundary$};
+
+\node[draw=none, scale=0.8] at (3.25,0.3) {\large (b)};
+
+
+
+
+\end{tikzpicture}
+\end{center}
+\end{columns}
 \end{frame}
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
