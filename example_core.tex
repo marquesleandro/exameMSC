@@ -510,18 +510,29 @@ while developing the searching procedure
 
 \begin{frame} 
  \frametitle{\LARGE Semi-Lagrangian Method}
+\begin{columns}[c]
+\column{.5\textwidth}
+\textcolor{red}{READ PIRONNEAU PAPER TO ADD MORE DETAILS}
+
+\medskip
 Therefore, the Governing Equations were discretized in time using semi-Lagrangian Method [3]:
 
-\vspace{1.5cm}
+\vspace{-1cm}
+\column{.5\textwidth}
+\begin{center}
 \begin{equation*}
  \frac{\omega_{i}^{n+1} - \omega_{d}^{n}}{\Delta t} = \frac{1}{Re} \nabla^{2} \omega^{n+1}
- \hspace{1.2cm}
+\end{equation*}
+\medskip
+\begin{equation*}
  \nabla^{2} \psi = - \omega
 \end{equation*}
-\vspace{0.2cm}
+\medskip
 \begin{equation*}
  \frac{c_{i}^{n+1} - c_{d}^{n}}{\Delta t} = \frac{1}{ReSc} \nabla^{2} c^{n+1}
-\end{equation*}\\[0.8cm]
+\end{equation*}
+\end{center}
+\end{columns}
 
 \justifying
 \vspace{1cm}
