@@ -79,10 +79,7 @@ Aims:
 In ALE description, the referential frame moves with an arbitrary velocity that does not necessary represents the Lagrangian or Eulerian description.
 
 \bigskip
-The convection velocity \textbf{c} is the relative velocity between the material and the mesh velocity respectively, that is [2]: \\
-\begin{center}
-$\textbf{c} = \textbf{v}-\hat{\textbf{v}}$
-\end{center}
+The convection velocity is calculated by the relative velocity between the material and the mesh velocity respectively [2]
 
 
 \column{.5\textwidth}
@@ -320,17 +317,18 @@ Donea, J., Huerta, A., Ponthot, J.‐P. and Rodríguez‐Ferran, A. (2004). Arbi
 \small
 \vspace{0.5cm}
 \begin{equation*}
- \frac{\partial \omega}{\partial t} + \textbf{c} \cdot \nabla \omega = \frac{1}{Re} \nabla^{2} \omega
+ \frac{D \omega}{Dt} = \frac{1}{Re} \nabla^{2} \omega
  \hspace{1.2cm}
  \nabla^{2} \psi = - \omega
 \end{equation*}
 \vspace{0.2cm}
 \begin{equation*}
- \frac{\partial \kappa}{\partial t} + \textbf{c} \cdot \nabla \kappa = \frac{1}{ReSc} \nabla^{2} \kappa
+ \frac{Dc}{Dt} = \frac{1}{ReSc} \nabla^{2} c 
 \end{equation*}\\[0.8cm]
 
 \justifying
-The material velocity field is calculated by: 
+where, $D(\cdot)/Dt$ is substantive derivative and
+the material velocity field is calculated by: 
 $v_{x} = \partial \psi / \partial y$ and 
 $v_{y} = - \partial \psi / \partial x$
 
@@ -341,11 +339,11 @@ $v_{y} = - \partial \psi / \partial x$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
- \frametitle{\LARGE semi-Lagragian Method}
+ \frametitle{\LARGE Semi-Lagragian Method}
 
 \vspace{-0.8cm}
 \begin{columns}[c]
-\column{.6\textwidth}
+\column{.5\textwidth}
 \justifying
 
 \vspace{-1.4cm}
@@ -508,6 +506,31 @@ while developing the searching procedure
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{frame} 
+ \frametitle{\LARGE Semi-Lagrangian Method}
+Therefore, the Governing Equations were discretized in time using semi-Lagrangian Method [3]:
+
+\vspace{1.5cm}
+\begin{equation*}
+ \frac{\omega_{i}^{n+1} - \omega_{d}^{n}}{\Delta t} = \frac{1}{Re} \nabla^{2} \omega^{n+1}
+ \hspace{1.2cm}
+ \nabla^{2} \psi = - \omega
+\end{equation*}
+\vspace{0.2cm}
+\begin{equation*}
+ \frac{c_{i}^{n+1} - c_{d}^{n}}{\Delta t} = \frac{1}{ReSc} \nabla^{2} c^{n+1}
+\end{equation*}\\[0.8cm]
+
+\justifying
+\vspace{1cm}
+\tiny [3]
+Pironneau, O. On the transport-diffusion algorithm and its applications to the Navier-Stokes equations. Numer. Math. 38, 309–332 (1982). \textit{https://doi.org/10.1007/BF01396435}
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 
 \begin{frame} 
@@ -538,37 +561,20 @@ while developing the searching procedure
 \small
 \vspace{0.2cm}
 \begin{equation*}
- \frac{\mathbf{M}}{\Delta t} \overset{.}{\omega} = - \mathbf{v} \cdot \mathbf{G} \omega^{n} - \frac{1}{\textit{Re}} \mathbf{K}\omega^{n} - \frac{\Delta t}{2} \mathbf{K_{s}} \omega^{n} 
+ \left[ \frac{\mathbf{M}}{\Delta t} + \frac{\mathbf{K}}{Re} \right] \omega_{i}^{n+1} = \frac{\mathbf{M}}{\Delta t} \omega_{d}^{n}
  \hspace{1.2cm}
  \mathbf{K} \psi = \mathbf{M} \omega
 \end{equation*}
 \vspace{0.2cm}
 \begin{equation*}
- \frac{\mathbf{M}}{\Delta t} \overset{.}{c} = - \mathbf{v} \cdot \mathbf{G} c^{n} - \frac{1}{\textit{ReSc}} \mathbf{K}c^{n} - \frac{\Delta t}{2} \mathbf{K_{s}} c^{n} 
- \hspace{1.2cm}
- \mathbf{M} \mathbf{v} = \mathbf{G} \psi
-\end{equation*}\\[0.5cm]
-
-Where $\mathbf{K_{s}}$ is stability matrix to decrease spurious oscillations
-
-\vspace{0.5cm}
-\begin{equation*}
- \frac{\partial \omega}{\partial t} + \textbf{c} \cdot \nabla \omega = \frac{1}{Re} \nabla^{2} \omega
- \hspace{1.2cm}
- \nabla^{2} \psi = - \omega
-\end{equation*}
-\vspace{0.2cm}
-\begin{equation*}
- \frac{\partial \kappa}{\partial t} + \textbf{c} \cdot \nabla \kappa = \frac{1}{ReSc} \nabla^{2} \kappa
+ \left[ \frac{\mathbf{M}}{\Delta t} + \frac{\mathbf{K}}{ReSc} \right] c_{i}^{n+1} = \frac{\mathbf{M}}{\Delta t} c_{d}^{n}
 \end{equation*}\\[0.8cm]
+
 
 \justifying
 The material velocity field is calculated by: 
-$v_{x} = \partial \psi / \partial y$ and 
-$v_{y} = - \partial \psi / \partial x$
-
-\
-
+$\mathbf{M} v_{x} = \mathbf{G_{y}} \psi$ and 
+$\mathbf{M} v_{y} = - \mathbf{G_{x}} \psi$
 
 \end{frame}
 
