@@ -341,16 +341,19 @@ $v_{y} = - \partial \psi / \partial x$
 
 \vspace{-0.8cm}
 \begin{columns}[c]
-\column{.4\textwidth}
+\column{.6\textwidth}
 \justifying
-In ALE description, the referential frame moves with an arbitrary velocity that does not necessary represents the Lagrangian or Eulerian description.
 
-\bigskip
-The convection velocity \textbf{c} is the relative velocity between the material and the mesh velocity, that is, $\textbf{c} = \textbf{v}-\hat{\textbf{v}}$
+\vspace{-1.4cm}
+The figure (a) shows 1D space scheme of the semi-Lagrangian method.
+The departure node is found by integration the mesh backward in time using $x_{i-1}$ and $x_{i}$
+
+\vspace{2cm}
+The figure (b) shows three possible trajectories of departure node
+while developing the searching procedure
 
 
-
-\column{.7\textwidth}
+\column{.5\textwidth}
 \begin{center}
 \begin{tikzpicture}[scale=2.5]
  
