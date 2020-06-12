@@ -339,7 +339,7 @@ $v_{y} = - \partial \psi / \partial x$
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\iffalse
 \begin{frame}
  \frametitle{\LARGE Semi-Lagragian Method}
 
@@ -502,7 +502,7 @@ while developing the searching procedure
 \end{center}
 \end{columns}
 \end{frame}
-
+\fi
 
 
 
@@ -510,32 +510,148 @@ while developing the searching procedure
 
 \begin{frame} 
  \frametitle{\LARGE Semi-Lagrangian Method}
+
 \begin{columns}[c]
 \column{.5\textwidth}
-\textcolor{red}{READ PIRONNEAU PAPER TO ADD MORE DETAILS}
+\justifying
+The implicit semi-Lagrangian time discretization provides [3]:
 
 \medskip
-Therefore, the Governing Equations were discretized in time using semi-Lagrangian Method [3]:
+Advantages:
+\begin{itemize}
+ \justifying
+ \item Symmetric linear systems\\
+ \item Unconditionnal stability
+\end{itemize}
 
-\vspace{-1cm}
 \column{.5\textwidth}
-\begin{center}
+\vspace{-0.5cm}
 \begin{equation*}
  \frac{\omega_{i}^{n+1} - \omega_{d}^{n}}{\Delta t} = \frac{1}{Re} \nabla^{2} \omega^{n+1}
 \end{equation*}
-\medskip
 \begin{equation*}
  \nabla^{2} \psi = - \omega
 \end{equation*}
-\medskip
 \begin{equation*}
  \frac{c_{i}^{n+1} - c_{d}^{n}}{\Delta t} = \frac{1}{ReSc} \nabla^{2} c^{n+1}
 \end{equation*}
+\end{columns}
+
+\vspace{0.8cm}
+\begin{columns}[c]
+\column{.5\textwidth}
+\vspace{-0.6cm}
+\justifying
+
+Disadvantages:
+\begin{itemize}
+ \justifying
+ \item Numerical Diffusion\\
+ \item Searching procedure may lead to excessive computational cost
+       if it is not well designed
+\end{itemize}
+
+
+\column{.5\textwidth}
+\vspace{-0.5cm}
+\begin{center}
+\begin{tikzpicture}[scale=2.5]
+
+ % boundary 
+ \draw[line width=0.2mm] (2.5,1.6) -- (4.0,1.6);
+ \draw[line width=0.2mm] (2.5,1.6) -- (2.5,0.5);
+ \draw[line width=0.2mm] (2.5,0.5) -- (4.0,0.5);
+
+ % nodes
+ \coordinate (A) at (2.500,0.5000) {};
+ \coordinate (B) at (2.500,0.8667) {};
+ \coordinate (C) at (2.500,1.2330) {};
+ \coordinate (D) at (2.500,1.6000) {};
+ \coordinate (E) at (2.733,0.6830) {};
+ \coordinate (F) at (2.833,1.0500) {};
+ \coordinate (G) at (2.733,1.4160) {};
+ \coordinate (H) at (3.000,1.6000) {};
+ \coordinate (I) at (3.066,0.5000) {};
+ \coordinate (J) at (3.166,0.8660) {};
+ \coordinate (K) at (3.150,1.3330) {};
+ \coordinate (L) at (3.333,1.6000) {};
+ \coordinate (M) at (3.500,0.5000) {};
+ \coordinate (N) at (3.333,0.6830) {};
+ \coordinate (O) at (3.400,1.0000) {};
+ \coordinate (P) at (3.500,1.2300) {};
+
+ % elements
+ \draw (A) -- (E) -- (B) -- cycle;
+ \draw (A) -- (I) -- (E) -- cycle;
+ \draw (E) -- (J) -- (F) -- cycle;
+ \draw (E) -- (F) -- (B) -- cycle;
+ \draw (B) -- (F) -- (C) -- cycle;
+ \draw (J) -- (K) -- (F) -- cycle;
+ \draw (F) -- (K) -- (G) -- cycle;
+ \draw (C) -- (F) -- (G) -- cycle;
+ \draw (C) -- (G) -- (D) -- cycle;
+ \draw (G) -- (H) -- (D) -- cycle;
+ \draw (I) -- (N) -- (J) -- cycle;
+ \draw (I) -- (M) -- (N) -- cycle;
+ \draw (N) -- (O) -- (J) -- cycle;
+ \draw (J) -- (O) -- (K) -- cycle;
+ \draw (P) -- (L) -- (K) -- cycle;
+ \draw (K) -- (L) -- (H) -- cycle;
+ \draw (O) -- (P) -- (K) -- cycle;
+ \draw[red,line width=0.04cm] (I) -- (J) -- (E) -- cycle;
+ \draw[red,line width=0.04cm] (B) -- (C);
+ \draw[red,line width=0.04cm] (G) -- (K) -- (H) -- cycle;
+ 
+
+ % draw nodes
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (A) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (B) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (C) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (D) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (E) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (F) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (G) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (H) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (I) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (J) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (K) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (L) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (M) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (N) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (O) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (P) {};
+
+
+ % arrow
+ \draw[dashed,line width=0.02cm] (J) edge (2.95,0.65);
+ \draw[dashed,line width=0.02cm] (J) edge (2.90,1.45);
+ \draw[dashed,line width=0.02cm] (J) edge (2.4,1.05) ;
+
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (J) {};
+
+ % departure nodes
+ \node[circle, fill=white, draw, inner sep=0pt, minimum size=4pt] at (2.95,0.65) {};
+ \node[circle, fill=white, draw, inner sep=0pt, minimum size=4pt] at (2.90,1.45) {};
+ \node[circle, fill=white, draw, inner sep=0pt, minimum size=4pt] at (2.4,1.05) {};
+
+
+ 
+ % legend
+ \node[draw=none, scale=0.8] at (3.22,0.96) {\small $x_{i}$};
+ 
+ \node[draw=none, scale=0.8] at (3.05,0.64) {$1$};
+ \node[draw=none, scale=0.8] at (3.00,1.45) {$2$};
+ \node[draw=none, scale=0.8] at (2.4,1.15) {$3$};
+ 
+ \node[draw=none, scale=0.9] at (3.7,1.0) {\small $domain$};
+ \node[draw=none, scale=0.9] at (3.8,1.65) {\small $boundary$};
+\end{tikzpicture}
 \end{center}
 \end{columns}
 
+
+\vspace{0.6cm}
 \justifying
-\vspace{1cm}
 \tiny [3]
 Pironneau, O. On the transport-diffusion algorithm and its applications to the Navier-Stokes equations. Numer. Math. 38, 309–332 (1982). \textit{https://doi.org/10.1007/BF01396435}
 \end{frame}
@@ -547,7 +663,7 @@ Pironneau, O. On the transport-diffusion algorithm and its applications to the N
 
 
 \begin{frame} 
- \frametitle{\LARGE Finite Element Method}
+ \frametitle{\LARGE Galerkin FE Method}
 \vspace{-1.2cm}
 \begin{columns}[c]
 \column{.5\textwidth}
