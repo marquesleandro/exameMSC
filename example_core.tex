@@ -72,19 +72,30 @@ Aims:
 
 \begin{frame}
 \frametitle{\LARGE Arbitrary Lagrangian-Eulerian (ALE)}
-\textcolor{red}{\Huge REWRITE}
 
-\vspace{-0.5cm}
+\vspace{-0.4cm}
 \begin{columns}[c]
-\column{.4\textwidth}
+\column{.5\textwidth}
 \justifying
-In ALE description, the referential frame moves with an arbitrary velocity that does not necessary represents the Lagrangian or Eulerian description.
+The Arbitrary Lagrangian-Eulerian combines
+the classical kinematical descriptions, while it provides [2]:
 
-\bigskip
-The convection velocity is calculated by the relative velocity between the material and the mesh velocity respectively [2]
-
+\vspace{0.5cm}
+Advantages:
+\begin{itemize}
+  \justifying
+  \item Simulations in fluid-structure and moving boundary problems
+\end{itemize}
+ 
+\vspace{0.5cm}
+Disadvantages:
+\begin{itemize}
+ \justifying
+ \item The computational mesh requires an extensive topological treatment
+\end{itemize}
 
 \column{.5\textwidth}
+\vspace{-1cm}
 \begin{center}
 \begin{tikzpicture}[scale=0.8]
 
@@ -289,7 +300,7 @@ The convection velocity is calculated by the relative velocity between the mater
 \end{center}
 \end{columns}
 
-\vspace{0.3cm}
+\vspace{0.5cm}
 \tiny [2]
 Donea, J., Huerta, A., Ponthot, J.‐P. and Rodríguez‐Ferran, A. (2004). Arbitrary Lagrangian–Eulerian Methods. In Encyclopedia of Computational Mechanics \textit{doi:10.1002/0470091355.ecm009}
 \end{frame}
