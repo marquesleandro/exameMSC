@@ -314,7 +314,7 @@ Donea, J., Huerta, A., Ponthot, J.‐P. and Rodríguez‐Ferran, A. (2004). Arbi
 \vspace{-1.2cm}
 \begin{columns}[c]
 \column{.6\textwidth}
-Assumptions [4]:\\[0.1cm]
+Assumptions [3]:\\[0.1cm]
 \hspace{0.5cm}  1. Continuum hypothesis\\[0.1cm]
 \hspace{0.5cm}  2. Homogeneous and Isotropic\\[0.1cm]
 \hspace{0.5cm}  3. Incompressible\\[0.1cm]
@@ -348,7 +348,7 @@ $v_{x} = \partial \psi / \partial y$ and
 $v_{y} = - \partial \psi / \partial x$
 
 \vspace{1.0cm}
-\tiny [4]
+\tiny [3]
 Batchelor, G. (1967). An Introduction to Fluid Dynamics (Cambridge Mathematical Library). Cambridge: Cambridge University Press. \textit{doi:10.1017/CBO9780511800955}
 
 \end{frame}
@@ -531,7 +531,7 @@ while developing the searching procedure
 \begin{columns}[c]
 \column{.5\textwidth}
 \justifying
-The implicit semi-Lagrangian time discretization provides [3]:
+The implicit semi-Lagrangian time discretization provides [4]:
 
 \medskip
 Advantages:
@@ -669,7 +669,7 @@ Disadvantages:
 
 \vspace{0.6cm}
 \justifying
-\tiny [3]
+\tiny [4]
 Pironneau, O. On the transport-diffusion algorithm and its applications to the Navier-Stokes equations. Numer. Math. 38, 309–332 (1982). \textit{https://doi.org/10.1007/BF01396435}
 \end{frame}
 
@@ -729,7 +729,7 @@ $\mathbf{M} v_{y} = - \mathbf{G_{x}} \psi$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
- \frametitle{\LARGE Adaptive Mesh Refinement}
+ \frametitle{\LARGE Mesh Smoothing}
 
 \vspace{-1cm}
 \begin{columns}[c]
@@ -802,9 +802,9 @@ Aims:
     \node [block, below of=step7] (step8) {Calculate streamfunction field};
     \node [block, below of=step8] (step9) {Calculate velocity field};
     \node [block, below of=step9] (step10) {Calculate concentration field};
-    \node [right of=step3, node distance=4cm] (initialLoop) {};
+    \node [right of=step4, node distance=4cm] (initialLoop) {};
     \node [right of=step10, node distance=4cm] (finalLoop) {};
-    \node [right of=step6, node distance=5.5cm] (textLoop) {};
+    \node [right of=step7, node distance=5.5cm] (textLoop) {};
 
     \node [draw=none, align=center,scale=0.7,text=black!80!] at (textLoop) {Repeat the procedure \\ for the next time step \\ until the steady state};
     % Draw edges
@@ -817,7 +817,7 @@ Aims:
     \path [line] (step7) -- (step8);
     \path [line] (step8) -- (step9);
     \path [line] (step9) -- (step10);
-    \path [line,dashed] (step10) -- (finalLoop) -- (initialLoop) |- (step3);
+    \path [line,dashed] (step10) -- (finalLoop) -- (initialLoop) |- (step4);
 \end{tikzpicture}
 \end{center}
 \end{frame}
