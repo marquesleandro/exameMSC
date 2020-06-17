@@ -729,48 +729,41 @@ $\mathbf{M} v_{y} = - \mathbf{G_{x}} \psi$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
- \frametitle{\LARGE Mesh Smoothing}
+ \frametitle{\LARGE Laplacian Smoothing}
 
-\vspace{-1cm}
+\vspace{-1.2cm}
 \begin{columns}[c]
 \column{.5\textwidth}
-Motivation:
-\begin{itemize}
-  \justifying
-  \item Ischaemic heart disease and stroke have remained the leading death causes globally in the last 15 years [1]
-\end{itemize}
- 
-\vspace{0.5cm}
- 
-Aims:
-\begin{itemize}
- \justifying
- \item To develop a Finite Element code for stream-vorticity formulation 
-       with species transport equation using the Arbitrary Lagrangian-Eulerian (ALE) approach \\
+\justifying
+To avoid the fast degradation of the computational elements
+due to ALE description, it was used the Laplacian Smoothing Method [5]
+
+\bigskip
+The new node position $\mathbf{\hat{x}_{i}}$ can be approximated by:
+
+\begin{equation*}
+\mathbf{\hat{x}_{i}} = \sum_{i \in N_{1}} e_{ij}^{-1} (\mathbf{x}_{j} - \mathbf{x}_{i})
+\end{equation*}
+
+\medskip
+where,
+$e_{ij}^{-1}$ is the distance between the node and each neighbor in 1-ring $N_{1}$
 
 
- \vspace{0.2cm}
- \item To create new drug-eluting design patent 
-\end{itemize}
-
-\vspace{-2cm}
+\vspace{-1cm}
 \column{.5\textwidth}
 \begin{center}
   \includegraphics[scale=0.2]{images/Smoothing.png}
-  \caption{\scriptsize with Mesh Smoothing}
+  \caption{\scriptsize with Laplacian Smoothing}
 
-  \vspace{0.5cm}
+  \vspace{1.0cm}
   \includegraphics[scale=0.2]{images/noSmoothing.png}
-  \caption{\scriptsize no Mesh Smoothing}
+  \caption{\scriptsize no Laplacian Smoothing}
 \end{center}
 \end{columns}
 
-\vspace{0.3cm}
-\tiny [1] World Health Organization, 2018, "The top 10 causes of death".
-\textit{www.who.int/news-room/fact-sheets/detail/the-top-10-causes-of-death}
-[Online accessed 06-04-20 08:27pm]
-
-
+\vspace{1cm}
+\tiny [5] Desbrun,  M.  Meyer,  P.  Schröder,  A.  Barr,  Implicit  fairing  of  irregular  meshes  using  diffusion  and  curvature  flow,  in:  Proceedingsof  Siggraph,  1999,  pp.  317–324
 
 \end{frame}
 
