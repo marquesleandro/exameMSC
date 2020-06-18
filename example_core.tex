@@ -686,15 +686,39 @@ Pironneau, O. On the transport-diffusion algorithm and its applications to the N
 \column{.5\textwidth}
 \begin{figure}[H]
 \begin{center}
-\begin{tikzpicture}[scale=2]
- \draw (0,0) -- (1,0) -- (0.5,1) -- cycle;
+\begin{tikzpicture}[scale=1.8]
 
+ \draw (0,2) -- (1,2) -- (0.5,3) -- cycle;
+ \node[circle, fill=black, inner sep=0pt, minimum size=5pt,label=below left:{1}] at (0,2) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=5pt,label=below right:{2}] at (1,2) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=5pt,label=above:{3}] at (0.5,3) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=5pt,label=below:{4}] at (0.5,2) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=5pt,label=right:{5}] at (0.75,2.5) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=5pt,label=left:{6}] at (0.25,2.5) {};
+
+ \draw (0,0) -- (1,0) -- (0.5,1) -- cycle;
  \node[circle, fill=black, inner sep=0pt, minimum size=5pt,label=below left:{1}] at (0,0) {};
  \node[circle, fill=black, inner sep=0pt, minimum size=5pt,label=below right:{2}] at (1,0) {};
  \node[circle, fill=black, inner sep=0pt, minimum size=5pt,label=above:{3}] at (0.5,1) {};
+
+
+
+% \draw (-1,0) -- (0,0) -- (-0.5,1) -- cycle;
+% \node[circle, fill=black, inner sep=0pt, minimum size=5pt,label=below left:{1}] at (-1,0) {};
+% \node[circle, fill=black, inner sep=0pt, minimum size=5pt,label=below right:{2}] at (0,0) {};
+% \node[circle, fill=black, inner sep=0pt, minimum size=5pt,label=above:{3}] at (-0.5,1) {};
+%
+% \draw (1,0) -- (2,0) -- (1.5,1) -- cycle;
+% \node[circle, fill=black, inner sep=0pt, minimum size=5pt,label=below left:{1}] at (1,0) {};
+% \node[circle, fill=black, inner sep=0pt, minimum size=5pt,label=below right:{2}] at (2,0) {};
+% \node[circle, fill=black, inner sep=0pt, minimum size=5pt,label=above:{3}] at (1.5,1) {};
+% \node[circle, fill=black, inner sep=0pt, minimum size=5pt,label=above:{4}] at (1.5,0.33) {};
+
+
+
  
- \node[draw=none, scale=1.2] at (0.5,-0.5) {$N_i = L_i$};
- \node[draw=none, scale=1.2] at (0.5,-0.9) {$i = 1,2,3$};
+ %\node[draw=none, scale=1.2] at (0.5,-0.5) {$N_i = L_i$};
+ %\node[draw=none, scale=1.2] at (0.5,-0.9) {$i = 1,2,3$};
 \end{tikzpicture}
 \end{center}
 \end{figure}
