@@ -340,10 +340,8 @@ Assumptions [3]:\\[0.1cm]
 \end{center}
 \end{columns}
 
-\vspace{1.2cm}
+\vspace{1cm}
 \justifying
-%where, $D(\cdot)/Dt$ is substantive derivative and
-
 The material velocity field $\mathbf{v} = \left( v_{x}, v_{y} \right)$ is calculated by: 
 $v_{x} = \partial \psi / \partial y$ and 
 $v_{y} = - \partial \psi / \partial x$
@@ -360,28 +358,40 @@ Batchelor, G. (1967). An Introduction to Fluid Dynamics (Cambridge Mathematical 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\iffalse
-\begin{frame}
- \frametitle{\LARGE Semi-Lagragian Method}
-
-\vspace{-0.8cm}
+\begin{frame} 
+ \frametitle{\LARGE Semi-Lagrangian Method}
+\vspace{-1cm}
 \begin{columns}[c]
 \column{.5\textwidth}
 \justifying
+The convective term was replaced by material derivative of $\omega$ and $c$ in the direction of characteristic trajectory
 
-\vspace{-1.4cm}
-The figure (a) shows 1D space scheme of the semi-Lagrangian method.
-The departure node is found by integration the mesh backward in time using $x_{i-1}$ and $x_{i}$
+\column{.5\textwidth}
+\begin{equation*}
+ \frac{D \omega}{D t} = \frac{1}{Re} \nabla^{2} \omega
+\end{equation*}
+\\
+\begin{equation*}
+ \nabla^{2} \psi = - \omega
+\end{equation*}
+\\
+\begin{equation*}
+ \frac{D c}{D t} = \frac{1}{ReSc} \nabla^{2} c 
+\end{equation*}
+\end{columns}
 
-\vspace{2cm}
-The figure (b) shows three possible trajectories of departure node
-while developing the searching procedure
+\vspace{1cm}
+\begin{columns}[c]
+\column{.5\textwidth}
+\justifying
+The departure node is calculated by $x_{d}^{n} = x_{i}^{n+1} - \left( \mathbf{v} - \mathbf{\hat{v}}\right) \Delta t$. Then, a searching procedure is required to find $x_{d}^{n}$ using barycentric coordinates
+
 
 
 \column{.5\textwidth}
+\vspace{-0.5cm}
 \begin{center}
 \begin{tikzpicture}[scale=2.5]
- 
  % grid
  \draw (2.5,2.5) -- (4.0,2.5);
  \draw (2.5,2.8) -- (4.0,2.8);
@@ -395,18 +405,18 @@ while developing the searching procedure
 
  % nodes
  \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (2.60,2.5) {};
- \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (3.12,2.5) {};
- \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (3.64,2.5) {};
- \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (3.90,2.5) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (3.2,2.5) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (3.54,2.5) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (3.85,2.5) {};
 
- \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (2.60,2.8) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (2.64,2.8) {};
  \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (3.12,2.8) {};
  \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (3.64,2.8) {};
  \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (3.90,2.8) {};
 
  \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (2.60,3.0) {};
- \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (3.12,3.0) {};
- \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (3.64,3.0) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (3.1,3.0) {};
+ \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (3.50,3.0) {};
  \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (3.90,3.0) {};
 
 
@@ -421,109 +431,14 @@ while developing the searching procedure
  \node[draw=none, scale=0.8] at (2.60,2.35) {\small $\mathbf{x}_{i-1}$};
  \node[draw=none, scale=0.8] at (3.12,2.35) {\small $\mathbf{x}_{i}$};
  \node[draw=none, scale=0.8] at (3.64,2.35) {\small $\mathbf{x}_{i+1}$};
- \node[draw=none, scale=0.8] at (3.25,2.10) {\large (a)};
-
- % ----------------------------------------------------
-
- % boundary 
- \draw[line width=0.2mm] (2.5,1.6) -- (4.0,1.6);
- \draw[line width=0.2mm] (2.5,1.6) -- (2.5,0.5);
- \draw[line width=0.2mm] (2.5,0.5) -- (4.0,0.5);
-
- % nodes
- \coordinate (A) at (2.500,0.5000) {};
- \coordinate (B) at (2.500,0.8667) {};
- \coordinate (C) at (2.500,1.2330) {};
- \coordinate (D) at (2.500,1.6000) {};
- \coordinate (E) at (2.733,0.6830) {};
- \coordinate (F) at (2.833,1.0500) {};
- \coordinate (G) at (2.733,1.4160) {};
- \coordinate (H) at (3.000,1.6000) {};
- \coordinate (I) at (3.066,0.5000) {};
- \coordinate (J) at (3.166,0.8660) {};
- \coordinate (K) at (3.150,1.3330) {};
- \coordinate (L) at (3.333,1.6000) {};
- \coordinate (M) at (3.500,0.5000) {};
- \coordinate (N) at (3.333,0.6830) {};
- \coordinate (O) at (3.400,1.0000) {};
- \coordinate (P) at (3.500,1.2300) {};
-
- % elements
- \draw (A) -- (E) -- (B) -- cycle;
- \draw (A) -- (I) -- (E) -- cycle;
- \draw[red,line width=0.04cm] (I) -- (J) -- (E) -- cycle;
- \draw (E) -- (J) -- (F) -- cycle;
- \draw (E) -- (F) -- (B) -- cycle;
- \draw (B) -- (F) -- (C) -- cycle;
- \draw[red,line width=0.04cm] (B) -- (C);
- \draw (J) -- (K) -- (F) -- cycle;
- \draw (F) -- (K) -- (G) -- cycle;
- \draw (C) -- (F) -- (G) -- cycle;
- \draw (C) -- (G) -- (D) -- cycle;
- \draw[red,line width=0.04cm] (G) -- (K) -- (H) -- cycle;
- \draw (G) -- (H) -- (D) -- cycle;
- \draw (I) -- (N) -- (J) -- cycle;
- \draw (I) -- (M) -- (N) -- cycle;
- \draw (N) -- (O) -- (J) -- cycle;
- \draw (J) -- (O) -- (K) -- cycle;
- \draw (P) -- (L) -- (K) -- cycle;
- \draw (K) -- (L) -- (H) -- cycle;
- \draw (O) -- (P) -- (K) -- cycle;
-
-
- % draw nodes
- \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (A) {};
- \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (B) {};
- \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (C) {};
- \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (D) {};
- \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (E) {};
- \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (F) {};
- \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (G) {};
- \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (H) {};
- \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (I) {};
- \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (J) {};
- \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (K) {};
- \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (L) {};
- \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (M) {};
- \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (N) {};
- \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (O) {};
- \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (P) {};
-
-
- % arrow
- \draw[dashed,line width=0.02cm] (J) edge (2.95,0.65);
- \draw[dashed,line width=0.02cm] (J) edge (2.90,1.45);
- \draw[dashed,line width=0.02cm] (J) edge (2.4,1.05) ;
-
- \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (J) {};
-
- % departure nodes
- \node[circle, fill=white, draw, inner sep=0pt, minimum size=4pt] at (2.95,0.65) {};
- \node[circle, fill=white, draw, inner sep=0pt, minimum size=4pt] at (2.90,1.45) {};
- \node[circle, fill=white, draw, inner sep=0pt, minimum size=4pt] at (2.4,1.05) {};
-
-
- 
- % legend
- \node[draw=none, scale=0.8] at (3.22,0.96) {\small $x_{i}$};
- 
- \node[draw=none, scale=0.8] at (3.05,0.64) {$1$};
- \node[draw=none, scale=0.8] at (3.00,1.45) {$2$};
- \node[draw=none, scale=0.8] at (2.4,1.15) {$3$};
- 
- \node[draw=none, scale=0.9] at (3.7,1.0) {\small $domain$};
- \node[draw=none, scale=0.9] at (3.8,1.65) {\small $boundary$};
-
-\node[draw=none, scale=0.8] at (3.25,0.3) {\large (b)};
-
-
 
 
 \end{tikzpicture}
 \end{center}
 \end{columns}
 \end{frame}
-\fi
+
+
 
 
 
