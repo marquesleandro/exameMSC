@@ -327,7 +327,7 @@ Assumptions [3]:\\[0.1cm]
 \column{.4\textwidth}
 \begin{center}
 \begin{equation*}
- \frac{D \omega}{Dt} = \frac{1}{Re} \nabla^{2} \omega
+ \frac{\partial \omega}{\partial t} + \left( \mathbf{v} - \mathbf{\hat{v}} \right) \cdot \nabla \omega = \frac{1}{Re} \nabla^{2} \omega
 \end{equation*}
 \medskip
 \begin{equation*}
@@ -335,19 +335,23 @@ Assumptions [3]:\\[0.1cm]
 \end{equation*}
 \medskip
 \begin{equation*}
- \frac{Dc}{Dt} = \frac{1}{ReSc} \nabla^{2} c 
+ \frac{\partial c}{\partial t} + \left( \mathbf{v} - \mathbf{\hat{v}} \right) \cdot \nabla c = \frac{1}{ReSc} \nabla^{2} c 
 \end{equation*}
 \end{center}
 \end{columns}
 
 \vspace{1.2cm}
 \justifying
-where, $D(\cdot)/Dt$ is substantive derivative and
-the material velocity field is calculated by: 
+%where, $D(\cdot)/Dt$ is substantive derivative and
+
+The material velocity field $\mathbf{v} = \left( v_{x}, v_{y} \right)$ is calculated by: 
 $v_{x} = \partial \psi / \partial y$ and 
 $v_{y} = - \partial \psi / \partial x$
 
-\vspace{1.0cm}
+\bigskip
+The mesh velocity field $\mathbf{\hat{v}} \neq \mathbf{v} \left( Lagrangian \right)$ or $0 \left( Eulerian \right)$
+
+\vspace{0.5cm}
 \tiny [3]
 Batchelor, G. (1967). An Introduction to Fluid Dynamics (Cambridge Mathematical Library). Cambridge: Cambridge University Press. \textit{doi:10.1017/CBO9780511800955}
 
