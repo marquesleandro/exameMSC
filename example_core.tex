@@ -11,7 +11,6 @@
   3. Validation\\[0.1cm]
   4. Results\\[0.1cm]
   5. Conclusion
-aa
 \end{frame}
 
 
@@ -858,8 +857,7 @@ u = \frac{4 u_{max}}{L^2} y \big[ L - y \big]
 \begin{column}{0.55\textwidth} 
 \small
 Boundaries Conditions:\\[0.2cm]
-Inflow condition: $u=1$, $v=0$ e $\psi=y$\\[0.1cm]
-Outflow condition: $\psi=y$\\[0.1cm]
+Inflow condition: $u=u_{analytical}$, $v=0$
 Top plate: $u=0$, $v=0$, $\psi=1$\\[0.1cm]
 Bottom plate: $u=0$, $v=0$, $\psi=0$
 \end{column}
@@ -897,7 +895,10 @@ Bottom plate: $u=0$, $v=0$, $\psi=0$
  \draw [->,thick] (1.0,0.5) to (1.3,0.5);
  \draw [->,thick] (1.0,0.3) to (1.28,0.3);
  \draw [->,thick] (1.0,0.1) to (1.2,0.1);
-\end{tikzpicture}
+\end{tikzpicture}\\[0.2cm]
+\small Nodes: 1757\\
+\small Elements: 3263\\
+\small Relative Error: 0.67\%
 \end{column}
 \end{columns}
 \end{center}
@@ -942,14 +943,17 @@ Bottom plate: $u=0$, $v=0$, $\psi=0$
 
 \begin{frame}
  \frametitle{\LARGE Validation - Lid Driven Cavity Flow}
-\vspace{-1.1cm}
+\vspace{-0.3cm}
 \begin{center}
 \begin{columns}[c]
 \begin{column}{0.65\textwidth} 
 \small
 Boundaries Conditions:\\[0.2cm]
 Bottom and side plates: $u=0$, $v=0$ e $\psi=0$\\[0.1cm]
-Top plate: $u=1$, $v=0$ e $\psi=0$
+Top plate: $u=1$, $v=0$ e $\psi=0$\\[0.1cm]
+Nodes: 3798\\[0.1cm]
+Elements: 7382\\[0.1cm]
+Re: 100
 \end{column}
 \begin{column}{0.25\textwidth} 
 \begin{tikzpicture}[scale=0.6]
@@ -967,7 +971,6 @@ Top plate: $u=1$, $v=0$ e $\psi=0$
 \end{columns}
 \end{center}
 
-\vspace{0.2cm}
 \begin{center}
 \begin{columns}[c]
 \begin{column}{0.55\textwidth} 
@@ -1358,10 +1361,10 @@ $Re=54.5$
 \begin{enumerate}
  \justifying
  \small
- \item Was observed that the species transport in blood flow is directly influenced
-       by drug used in stent production\\
+% \item Was observed that the species transport in blood flow is directly influenced
+%       by drug used in stent production\\
 
- \vspace{0.3cm}
+% \vspace{0.3cm}
  
  \item The streamfunction-vorticity formulation showed an useful approach for to calculate
        the velocity and concentration fields since the variables are scalars allowing a
@@ -1371,7 +1374,11 @@ $Re=54.5$
 
  \item Due to generalized construction of the code, the simulator is able to describe
        drug-eluting stent problem in coronary artery as well as flows of Newtonian fluids
-       with scalar transport (concentration or temperature)
+       with scalar transport (concentration or temperature)\\
+
+ \vspace{0.3cm}
+
+ \item The ALE description allows moving boundary problems to be simulated
 \end{enumerate}
 \end{frame}
 
