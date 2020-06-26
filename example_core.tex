@@ -313,7 +313,7 @@ Donea, J., Huerta, A., Ponthot, J.‐P. and Rodríguez‐Ferran, A. (2004). Arbi
  \frametitle{\LARGE Governing Equations}
 \vspace{-1.2cm}
 \begin{columns}[c]
-\column{.6\textwidth}
+\column{.5\textwidth}
 Assumptions [3]:\\[0.1cm]
 \hspace{0.5cm}  1. Continuum hypothesis\\[0.1cm]
 \hspace{0.5cm}  2. Homogeneous and Isotropic\\[0.1cm]
@@ -324,7 +324,7 @@ Assumptions [3]:\\[0.1cm]
 \hspace{0.5cm}  7. Two-dimensional flow
 
 \vspace{-1cm}
-\column{.4\textwidth}
+\column{.5\textwidth}
 \begin{center}
 \begin{equation*}
  \frac{\partial \omega}{\partial t} + \left( \mathbf{v} - \mathbf{\hat{v}} \right) \cdot \nabla \omega = \frac{1}{Re} \nabla^{2} \omega
@@ -341,13 +341,15 @@ Assumptions [3]:\\[0.1cm]
 \end{columns}
 
 \vspace{1cm}
+\begin{itemize}
 \justifying
-The material velocity field $\mathbf{v} = \left( v_{x}, v_{y} \right)$ is calculated by: 
-$v_{x} = \partial \psi / \partial y$ and 
-$v_{y} = - \partial \psi / \partial x$
+\item If the mesh velocity field $\mathbf{\hat{v}} = \mathbf{v} \left( Lagrangian \right)$ or $\mathbf{\hat{v}}$ = 0 \left( Eulerian \right)$\\
 
 \bigskip
-If the mesh velocity field $\mathbf{\hat{v}} = \mathbf{v} \left( Lagrangian \right)$ or $\mathbf{\hat{v}}$ = 0 \left( Eulerian \right)$
+\item The material velocity field $\mathbf{v} = \left( v_{x}, v_{y} \right)$ is calculated by:\\ 
+$v_{x} = \partial \psi / \partial y$ and 
+$v_{y} = - \partial \psi / \partial x$
+\end{itemize}
 
 \vspace{0.5cm}
 \tiny [3]
@@ -364,7 +366,8 @@ Batchelor, G. (1967). An Introduction to Fluid Dynamics (Cambridge Mathematical 
 \begin{columns}[c]
 \column{.5\textwidth}
 \justifying
-The convective term was replaced by material derivative of $\omega$ and $c$ in the direction of characteristic trajectory
+The convective term was replaced by material derivative in the direction of characteristic trajectory, that is:
+ $\frac{D(\cdot)}{Dt} = \frac{\partial (\cdot)}{\partial t} + (\mathbf{v} - \mathbf{\hat{v}}) \cdot \nabla (\cdot)$
 
 \column{.5\textwidth}
 \begin{equation*}
@@ -659,15 +662,15 @@ Pironneau, O. On the transport-diffusion algorithm and its applications to the N
  \left[ \frac{\mathbf{M}}{\Delta t} + \frac{\mathbf{K}}{ReSc} \right] c_{i}^{n+1} = \frac{\mathbf{M}}{\Delta t} c_{d}^{n}
 \end{equation*}
 \end{center}
-\end{columns}
 
-\vspace{1cm}
+\vspace{0.5cm}
+\begin{itemize}
 \justifying
-The material velocity field is calculated by: 
-$\mathbf{M} v_{x} = \mathbf{G_{y}} \psi$ and 
+\item The material velocity field is calculated by: \\
+$\mathbf{M} v_{x} = \mathbf{G_{y}} \psi$\\
 $\mathbf{M} v_{y} = - \mathbf{G_{x}} \psi$
-
-
+\end{itemize}
+\end{columns}
 
 \end{frame}
 
@@ -734,14 +737,15 @@ $e_{ij}^{-1}$ is the distance between the node and each neighbor in 1-ring $N_{1
     \node [block, below of=step1] (step2) {Calculate Gaussian Quadradure and Assemble Matrix};
     \node [block, below of=step2] (step3) {Inicialize Vorticity and Streamfunction};
     \node [block, below of=step3] (step4) {Calculate Laplacian smoothing and ALE velocity};
-    \node [block, below of=step4] (step5) {Calculate Gaussian Quadradure and Assemble Matrix};
-    \node [block, below of=step5] (step6) {Calculate vorticity boundary condition};
-    \node [block, below of=step6] (step7) {Calculate semi-Lagrangian and Vorticity field};
-    \node [block, below of=step7] (step8) {Calculate streamfunction field};
-    \node [block, below of=step8] (step9) {Calculate velocity field};
-    \node [block, below of=step9] (step10) {Calculate concentration field};
+    \node [block, below of=step4] (step5) {Move Nodes};
+    \node [block, below of=step5] (step6) {Calculate Gaussian Quadradure and Assemble Matrix};
+    \node [block, below of=step6] (step7) {Calculate vorticity boundary condition};
+    \node [block, below of=step7] (step8) {Calculate semi-Lagrangian and Vorticity field};
+    \node [block, below of=step8] (step9) {Calculate streamfunction field};
+    \node [block, below of=step9] (step10) {Calculate velocity field};
+    \node [block, below of=step10] (step11) {Calculate concentration field};
     \node [right of=step4, node distance=4cm] (initialLoop) {};
-    \node [right of=step10, node distance=4cm] (finalLoop) {};
+    \node [right of=step11, node distance=4cm] (finalLoop) {};
     \node [right of=step7, node distance=5.5cm] (textLoop) {};
 
     \node [draw=none, align=center,scale=0.7,text=black!80!] at (textLoop) {Repeat the procedure \\ for the next time step \\ until the steady state};
@@ -755,7 +759,8 @@ $e_{ij}^{-1}$ is the distance between the node and each neighbor in 1-ring $N_{1
     \path [line] (step7) -- (step8);
     \path [line] (step8) -- (step9);
     \path [line] (step9) -- (step10);
-    \path [line,dashed] (step10) -- (finalLoop) -- (initialLoop) |- (step4);
+    \path [line] (step10) -- (step11);
+    \path [line,dashed] (step11) -- (finalLoop) -- (initialLoop) |- (step4);
 \end{tikzpicture}
 \end{center}
 \end{frame}
@@ -898,7 +903,7 @@ Bottom plate: $u=0$, $v=0$, $\psi=0$
 \end{tikzpicture}\\[0.2cm]
 \small Nodes: 1757\\
 \small Elements: 3263\\
-\small Relative Error: 0.67\%
+\small Relative Error: 1.2\%
 \end{column}
 \end{columns}
 \end{center}
@@ -1411,6 +1416,19 @@ $Re=54.5$
   \hspace{-0.8cm}
   \includegraphics[scale=0.4]{images/workplan.png}\\
  \end{figure}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{\LARGE Final Presentation}
+ \begin{center}
+ \LARGE Expected Date for Final Presentation
+ \begin{figure}
+  \includegraphics[scale=0.6]{images/calendar.png}\\
+ \end{figure}
+\end{center}
 \end{frame}
 
 
